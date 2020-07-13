@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>We need your camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to photolibrary</string>
 	<key>CLIENT_ID</key>
 	<string>230816726688-pk7t9kf140g68d1fsstj88an0ik3akt6.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
