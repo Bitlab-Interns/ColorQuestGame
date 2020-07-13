@@ -14,9 +14,13 @@
 		89AD2B2A24BC225E008B4696 /* ColorQuest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89AD2B2824BC225E008B4696 /* ColorQuest.xcdatamodeld */; };
 		89AD2B2C24BC225F008B4696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AD2B2B24BC225F008B4696 /* Assets.xcassets */; };
 		89AD2B2F24BC225F008B4696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89AD2B2D24BC225F008B4696 /* LaunchScreen.storyboard */; };
+		89AD2B3724BC22A4008B4696 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89AD2B3624BC22A4008B4696 /* GoogleService-Info.plist */; };
+		97C1322FD6C96B0049F0493C /* Pods_ColorQuest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9107E6DE0BC3704260890695 /* Pods_ColorQuest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C5B71394B5571BE09E7953B /* Pods-ColorQuest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorQuest.debug.xcconfig"; path = "Target Support Files/Pods-ColorQuest/Pods-ColorQuest.debug.xcconfig"; sourceTree = "<group>"; };
+		79FFDA8D50A8ADD03F2BAC8F /* Pods-ColorQuest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorQuest.release.xcconfig"; path = "Target Support Files/Pods-ColorQuest/Pods-ColorQuest.release.xcconfig"; sourceTree = "<group>"; };
 		89AD2B1C24BC225E008B4696 /* ColorQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AD2B1F24BC225E008B4696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89AD2B2124BC225E008B4696 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		89AD2B2B24BC225F008B4696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89AD2B2E24BC225F008B4696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89AD2B3024BC225F008B4696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89AD2B3624BC22A4008B4696 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9107E6DE0BC3704260890695 /* Pods_ColorQuest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColorQuest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +39,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C1322FD6C96B0049F0493C /* Pods_ColorQuest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AF7DA95E72057E46C7DAC58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9107E6DE0BC3704260890695 /* Pods_ColorQuest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4134F11ECC56DE30E64DE766 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C5B71394B5571BE09E7953B /* Pods-ColorQuest.debug.xcconfig */,
+				79FFDA8D50A8ADD03F2BAC8F /* Pods-ColorQuest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		89AD2B1324BC225E008B4696 = {
 			isa = PBXGroup;
 			children = (
 				89AD2B1E24BC225E008B4696 /* ColorQuest */,
 				89AD2B1D24BC225E008B4696 /* Products */,
+				4134F11ECC56DE30E64DE766 /* Pods */,
+				2AF7DA95E72057E46C7DAC58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +93,7 @@
 				89AD2B2D24BC225F008B4696 /* LaunchScreen.storyboard */,
 				89AD2B3024BC225F008B4696 /* Info.plist */,
 				89AD2B2824BC225E008B4696 /* ColorQuest.xcdatamodeld */,
+				89AD2B3624BC22A4008B4696 /* GoogleService-Info.plist */,
 			);
 			path = ColorQuest;
 			sourceTree = "<group>";
@@ -77,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89AD2B3324BC225F008B4696 /* Build configuration list for PBXNativeTarget "ColorQuest" */;
 			buildPhases = (
+				5498100B47BB14001111E0E7 /* [CP] Check Pods Manifest.lock */,
 				89AD2B1824BC225E008B4696 /* Sources */,
 				89AD2B1924BC225E008B4696 /* Frameworks */,
 				89AD2B1A24BC225E008B4696 /* Resources */,
+				2E332DC92D653C613F185545 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,6 +158,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AD2B3724BC22A4008B4696 /* GoogleService-Info.plist in Resources */,
 				89AD2B2F24BC225F008B4696 /* LaunchScreen.storyboard in Resources */,
 				89AD2B2C24BC225F008B4696 /* Assets.xcassets in Resources */,
 				89AD2B2724BC225E008B4696 /* Main.storyboard in Resources */,
@@ -135,6 +166,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E332DC92D653C613F185545 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ColorQuest/Pods-ColorQuest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ColorQuest/Pods-ColorQuest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ColorQuest/Pods-ColorQuest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5498100B47BB14001111E0E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ColorQuest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		89AD2B1824BC225E008B4696 /* Sources */ = {
@@ -286,6 +359,7 @@
 		};
 		89AD2B3424BC225F008B4696 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C5B71394B5571BE09E7953B /* Pods-ColorQuest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,7 +369,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.colorquest.boat.ColorQuest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.colorquest.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -304,6 +378,7 @@
 		};
 		89AD2B3524BC225F008B4696 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79FFDA8D50A8ADD03F2BAC8F /* Pods-ColorQuest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -313,7 +388,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.colorquest.boat.ColorQuest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.colorquest.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
