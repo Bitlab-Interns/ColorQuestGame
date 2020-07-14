@@ -11,9 +11,11 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imagePicked: UIImageView!
+    @IBOutlet weak var croppedImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        cropImage(UIImage(named: "sample")!, 0.5)
     }
 
     @IBAction func imagePickerPressed(_ sender: Any) {
@@ -48,11 +50,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         imagePicked.image = image
+        cropImage(image, 0.5)
         picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    // cropping
+    func cropImage(_ image: UIImage, _ portionOfImage: Double) {
+        
+        let cgimage: CGImage = image.cgImage!
+        var dimensions = 0
+        if cgimage.height > cgimage.width {
+            dimensions = (Int)(Double(cgimage.width) * portionOfImage)
+        } else {
+            dimensions = (Int)(Double(cgimage.height) * portionOfImage)
+        }
+        let croppedImage = cgimage.cropping(to: CGRect(x: cgimage.width / 2 - dimensions / 2, y: cgimage.height / 2 - dimensions / 2, width: dimensions, height: dimensions))
+        croppedImageView.image = UIImage(cgImage: croppedImage!)
+        
     }
     
 }
@@ -74,3 +92,5 @@ extension UIImage {
     }
 
 }
+
+
