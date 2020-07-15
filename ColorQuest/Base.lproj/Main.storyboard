@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjS-Zz-Zvb" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="17"/>
+            <point key="canvasLocation" x="1865" y="17"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="2dg-1m-9XL">
