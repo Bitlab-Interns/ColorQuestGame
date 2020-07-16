@@ -12,6 +12,7 @@ import AVFoundation
 class gameScreenViewController: UIViewController {
 
     @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var croppedImage: UIImageView!
     var captureSession = AVCaptureSession()
     
     var backCamera: AVCaptureDevice?
@@ -172,6 +173,20 @@ class gameScreenViewController: UIViewController {
             let previewViewController = segue.destination as! cameraViewController
             previewViewController.image = self.image
         }
+    }
+    
+    func cropImage(_ image: UIImage, _ portionOfImage: Double) {
+        
+        let cgimage: CGImage = image.cgImage!
+        var dimensions = 0
+        if cgimage.height > cgimage.width {
+            dimensions = (Int)(Double(cgimage.width) * portionOfImage)
+        } else {
+            dimensions = (Int)(Double(cgimage.height) * portionOfImage)
+        }
+        let croppedImageVar = cgimage.cropping(to: CGRect(x: cgimage.width / 2 - dimensions / 2, y: cgimage.height / 2 - dimensions / 2, width: dimensions, height: dimensions))
+        croppedImage.image = UIImage(cgImage: croppedImage!)
+        
     }
 
     /*
