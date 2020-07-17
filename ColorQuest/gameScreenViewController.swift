@@ -185,7 +185,7 @@ class gameScreenViewController: UIViewController {
             dimensions = (Int)(Double(cgimage.height) * portionOfImage)
         }
         let croppedImageVar = cgimage.cropping(to: CGRect(x: cgimage.width / 2 - dimensions / 2, y: cgimage.height / 2 - dimensions / 2, width: dimensions, height: dimensions))
-        croppedImage.image = UIImage(cgImage: croppedImage!)
+        croppedImage.image = UIImage(cgImage: croppedImageVar!)
         
     }
 
