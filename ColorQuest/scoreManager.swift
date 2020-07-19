@@ -8,7 +8,7 @@
 
 import Foundation
 
-class scoreManager {
+class ScoreManager {
     
     func gen_rgb() -> (Int, Int, Int) {
         let r = round(Int.random(in: 1..<256))
@@ -43,5 +43,11 @@ class scoreManager {
         }
     }
     
+    func generatergb() -> (Int, Int, Int) {
+        let r = Int.random(in: 1..<256)
+        let g = Int.random(in: 1..<256)
+        let b = Int.random(in: 1..<256)
+        return (r, g, b)
+    }
     
 }
