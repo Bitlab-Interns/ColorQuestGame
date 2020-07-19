@@ -181,6 +181,28 @@
                                 <rect key="frame" x="116" y="136" width="182" height="183"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlN-Uj-B9X">
+                                <rect key="frame" x="183" y="744" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitPhoto:" destination="Pf4-6G-NwN" eventType="touchUpInside" id="VRE-r0-qI7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yi-NB-Dyg">
+                                <rect key="frame" x="20" y="76" width="38" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bZ-D8-rVf">
+                                <rect key="frame" x="352" y="76" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -196,6 +218,9 @@
                         <outlet property="gameImage" destination="6Mj-HK-aVN" id="4vf-al-z4v"/>
                         <outlet property="goalColorImageView" destination="Muq-ha-KUC" id="yym-xA-8CT"/>
                         <outlet property="retakeButton" destination="AFO-Ct-AcZ" id="m8d-Fb-gDf"/>
+                        <outlet property="roundLabel" destination="kpg-Os-ZRf" id="ECL-CI-JYn"/>
+                        <outlet property="scoreLabel" destination="0bZ-D8-rVf" id="Lhx-Vy-i0G"/>
+                        <outlet property="timeLabel" destination="7Yi-NB-Dyg" id="TJi-JG-WFr"/>
                         <segue destination="ikS-QI-Kax" kind="presentation" identifier="Preview_Segue" animates="NO" id="zil-Sm-ogI"/>
                     </connections>
                 </viewController>

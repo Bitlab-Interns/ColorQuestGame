@@ -6,6 +6,8 @@
 //  Copyright © 2020 Michael Peng. All rights reserved.
 //
 
+//TODO disable submit button when no picture is taken
+
 import UIKit
 import AVFoundation
 
@@ -36,17 +38,31 @@ class gameScreenViewController: UIViewController {
     @IBOutlet weak var goalColorImageView: UIImageView!
     
     let scoreManager = ScoreManager()
+    var guessColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0);
+    var currRound = 1
+    let totalTime = 30
+    lazy var count = totalTime
+    var submission: UIImage
+    var totalScore = 0
+    
+    @IBOutlet weak var roundLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         switchMode1()
         
+        var timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+        
         let color = scoreManager.generatergb()
         let r = CGFloat(Double(color.0) / 255.0)
         let g = CGFloat(Double(color.1) / 255.0)
         let b = CGFloat(Double(color.2) / 255.0)
-        goalColorImageView.backgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        let tempColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        guessColor = tempColor
+        goalColorImageView.backgroundColor = tempColor
         setupCaptureSession()
         setupDevice()
         setupInputOutput()
@@ -67,6 +83,22 @@ class gameScreenViewController: UIViewController {
         zoomOutGestureRecognizer.addTarget(self, action: #selector(zoomOut))
         view.addGestureRecognizer(zoomOutGestureRecognizer)
         styleCaptureButton()
+    }
+    
+    @objc func update() {
+        if(count > 0) {
+            count = count - 1
+            timeLabel.text = String(count)
+        } else if count == 0 {
+            if submission != nil { // this always returns true
+                let color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1) // average color
+                var currScore = scoreManager.similarity(r1, g1, b1, r2, g2, b2)
+                moveToNextRound(currScore)
+            } else {
+                moveToNextRound(0)
+            }
+            
+        }
     }
     
     
@@ -225,6 +257,25 @@ class gameScreenViewController: UIViewController {
         cameraButton.isHidden = true
     }
     
+    @IBAction func submitPhoto(_ sender: UIButton) {
+        
+        let color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1) // average color
+        var currScore = scoreManager.similarity(r1, g1, b1, r2, g2, b2)
+        currScore = currScore + 5 * (totalTime - count)
+        if (count == 0) { // display confirmation msg
+            moveToNextRound(currScore)
+        }
+    }
+    
+    // update ui
+    func moveToNextRound(_ lastScore: Int) { // lastScore = score earned in previous round
+        totalScore = totalScore + lastScore
+        scoreLabel.text = String(totalScore)
+        currRound += 1
+        roundLabel.text = "Round \(currRound)"
+    }
+    
+    
     /*
      // MARK: - Navigation
      
@@ -240,6 +291,7 @@ extension gameScreenViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if let imageData = photo.fileDataRepresentation() {
             self.image = UIImage(data: imageData)
+//            submission = UIImage(data: imageData)!
 //            performSegue(withIdentifier: "Preview_Segue", sender: nil)
             cropImage(image!, 0.5)
             croppedImage.image = croppedImage.image?.rotate(radians: 1.57)
