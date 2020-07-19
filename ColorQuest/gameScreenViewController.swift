@@ -11,8 +11,11 @@ import AVFoundation
 
 class gameScreenViewController: UIViewController {
     
+    @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var croppedImage: UIImageView!
+    @IBOutlet weak var retakeButton: UIButton!
+    @IBOutlet weak var boxImage: UIImageView!
     var captureSession = AVCaptureSession()
     
     var backCamera: AVCaptureDevice?
@@ -36,6 +39,8 @@ class gameScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switchMode1()
         
         let color = scoreManager.generatergb()
         let r = CGFloat(Double(color.0) / 255.0)
@@ -198,6 +203,26 @@ class gameScreenViewController: UIViewController {
         croppedImage.image = UIImage(cgImage: croppedImageVar!)
         
     }
+    @IBAction func retakePressed(_ sender: Any) {
+        switchMode1()
+    }
+    
+    func switchMode1() {
+        retakeButton.isHidden = true
+        gameImage.isHidden = true
+        croppedImage.isHidden = true
+        boxImage.isHidden = false
+        cameraButton.isHidden = false
+        
+    }
+    
+    func switchMode2(){
+        retakeButton.isHidden = false
+        gameImage.isHidden = false
+        croppedImage.isHidden = false
+        boxImage.isHidden = true
+        cameraButton.isHidden = true
+    }
     
     /*
      // MARK: - Navigation
@@ -214,9 +239,10 @@ extension gameScreenViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if let imageData = photo.fileDataRepresentation() {
             self.image = UIImage(data: imageData)
-            performSegue(withIdentifier: "Preview_Segue", sender: nil)
+//            performSegue(withIdentifier: "Preview_Segue", sender: nil)
             cropImage(image!, 0.5)
             croppedImage.image = croppedImage.image?.rotate(radians: 1.57)
+            switchMode2()
         }
     }
 }
