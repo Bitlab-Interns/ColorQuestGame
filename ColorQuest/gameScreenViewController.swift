@@ -30,8 +30,18 @@ class gameScreenViewController: UIViewController {
     var zoomInGestureRecognizer = UISwipeGestureRecognizer()
     var zoomOutGestureRecognizer = UISwipeGestureRecognizer()
     
+    @IBOutlet weak var goalColorImageView: UIImageView!
+    
+    let scoreManager = ScoreManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let color = scoreManager.generatergb()
+        let r = CGFloat(Double(color.0) / 255.0)
+        let g = CGFloat(Double(color.1) / 255.0)
+        let b = CGFloat(Double(color.2) / 255.0)
+        goalColorImageView.backgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1)
         setupCaptureSession()
         setupDevice()
         setupInputOutput()

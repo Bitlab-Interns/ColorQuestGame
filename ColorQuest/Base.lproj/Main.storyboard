@@ -150,7 +150,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="Muq-ha-KUC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Muq-ha-KUC">
                                 <rect key="frame" x="116" y="117" width="182" height="183"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -180,6 +180,7 @@
                     <connections>
                         <outlet property="cameraButton" destination="aeO-X3-shg" id="ptp-oH-7fZ"/>
                         <outlet property="croppedImage" destination="0ZT-9o-P3O" id="P84-N5-FJX"/>
+                        <outlet property="goalColorImageView" destination="Muq-ha-KUC" id="yym-xA-8CT"/>
                         <segue destination="ikS-QI-Kax" kind="presentation" identifier="Preview_Segue" animates="NO" id="zil-Sm-ogI"/>
                     </connections>
                 </viewController>
@@ -257,7 +258,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="blue" width="274" height="218"/>
         <image name="box" width="190" height="190"/>
         <image name="sample" width="1000" height="1500"/>
         <image name="white" width="448" height="448"/>
