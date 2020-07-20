@@ -41,8 +41,8 @@ class gameScreenViewController: UIViewController {
     var guessColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0);
     var currRound = 1
     let totalTime = 30
-//    lazy var count = totalTime
-//    var submission: UIImage
+    lazy var count = totalTime
+    var submission: UIImage!
     var totalScore = 0
     
     @IBOutlet weak var roundLabel: UILabel!
@@ -54,15 +54,15 @@ class gameScreenViewController: UIViewController {
         
         switchMode1()
         
-//        var timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+        var timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
         
         let color = scoreManager.generatergb()
         let r = CGFloat(Double(color.0) / 255.0)
         let g = CGFloat(Double(color.1) / 255.0)
         let b = CGFloat(Double(color.2) / 255.0)
-        let tempColor = UIColor(red: r, green: g, blue: b, alpha: 1)
-        guessColor = tempColor
-        goalColorImageView.backgroundColor = tempColor
+        guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        goalColorImageView.backgroundColor = guessColor
+        
         setupCaptureSession()
         setupDevice()
         setupInputOutput()
@@ -84,22 +84,22 @@ class gameScreenViewController: UIViewController {
         view.addGestureRecognizer(zoomOutGestureRecognizer)
         styleCaptureButton()
     }
-//
-//    @objc func update() {
-//        if(count > 0) {
-//            count = count - 1
-//            timeLabel.text = String(count)
-//        } else if count == 0 {
-//            if submission != nil { // this always returns true
-//                let color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1) // average color
-//                var currScore = scoreManager.similarity(r1, g1, b1, r2, g2, b2)
-//                moveToNextRound(currScore)
-//            } else {
-//                moveToNextRound(0)
-//            }
-//
-//        }
-//    }
+
+    @objc func update() {
+        if(count > 0) {
+            count = count - 1
+            timeLabel.text = String(count)
+        } else if count == 0 {
+            if submission != nil { // this always returns true
+                let color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1) // average color
+                var currScore = scoreManager.similarity(r1, g1, b1, r2, g2, b2)
+                moveToNextRound(currScore)
+            } else {
+                moveToNextRound(0)
+            }
+
+        }
+    }
     
     
     func styleCaptureButton() {
@@ -256,24 +256,24 @@ class gameScreenViewController: UIViewController {
         boxImage.isHidden = true
         cameraButton.isHidden = true
     }
-//
-//    @IBAction func submitPhoto(_ sender: UIButton) {
-//
-//        let color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1) // average color
-//        var currScore = scoreManager.similarity(r1, g1, b1, r2, g2, b2)
-//        currScore = currScore + 5 * (totalTime - count)
-//        if (count == 0) { // display confirmation msg
-//            moveToNextRound(currScore)
-//        }
-//    }
-//
-//    // update ui
-//    func moveToNextRound(_ lastScore: Int) { // lastScore = score earned in previous round
-//        totalScore = totalScore + lastScore
-//        scoreLabel.text = String(totalScore)
-//        currRound += 1
-//        roundLabel.text = "Round \(currRound)"
-//    }
+
+    @IBAction func submitPhoto(_ sender: UIButton) {
+
+        let color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1) // average color of user's submission
+        var currScore = scoreManager.similarity(r1, g1, b1, r2, g2, b2)
+        currScore = currScore + 5 * (totalTime - count)
+        if (count == 0) { // display confirmation msg
+            moveToNextRound(currScore)
+        }
+    }
+
+    // update ui
+    func moveToNextRound(_ lastScore: Int) { // lastScore = score earned in previous round
+        totalScore = totalScore + lastScore
+        scoreLabel.text = String(totalScore)
+        currRound += 1
+        roundLabel.text = "Round \(currRound)"
+    }
     
     
     /*
