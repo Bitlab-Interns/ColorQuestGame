@@ -1,3 +1,4 @@
+
 //
 //  scoreManager.swift
 //  ColorQuest
@@ -21,8 +22,8 @@ class ScoreManager {
         return Int(ceil(Double(x) / 10.0)) * 10
     }
     
-    func similarity(_ r1: Int, _ g1: Int, b1: Int, r2: Int, g2: Int, b2: Int) -> Int {
-        var d = sqrt(pow(Double(r2 - r1), 2) + pow(Double(g2 - g1), 2) + pow(Double(b2 - b1), 2))
+    func similarity(_ r1: Float, _ g1: Float, _ b1: Float, _ r2: Float, _ g2: Float, _ b2: Float) -> Int {
+        var d = sqrt(pow(r2 - r1, 2) + pow(g2 - g1, 2) + pow(b2 - b1, 2))
         
         if (d < 130) {
             d = d * 0.3
@@ -51,3 +52,4 @@ class ScoreManager {
     }
     
 }
+
