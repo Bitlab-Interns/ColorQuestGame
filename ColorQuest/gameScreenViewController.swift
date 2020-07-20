@@ -41,10 +41,11 @@ class gameScreenViewController: UIViewController {
     let scoreManager = ScoreManager()
     var guessColor: UIColor!
     var currRound = 1
-    let totalTime = 30
+    let totalTime = 10
     lazy var count = totalTime
     var submission: UIImage!
     var totalScore = 0
+    var currScore = 0 // score earned in a round
     
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -55,7 +56,7 @@ class gameScreenViewController: UIViewController {
         
         switchMode1()
         
-        var timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+        var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
         
         let color = scoreManager.generatergb()
         let r = CGFloat(Double(color.0) / 255.0)
@@ -99,7 +100,7 @@ class gameScreenViewController: UIViewController {
 //            } else {
 //                moveToNextRound(0)
 //            }
-            moveToNextRound(0)
+            moveToNextRound(currScore)
 
         }
     }
@@ -273,7 +274,7 @@ class gameScreenViewController: UIViewController {
 
         let color = submission.averageColor! // average color of user's submission
         let tempColor = guessColor.components
-        var currScore = scoreManager.similarity(Float(color.0), Float(color.1), Float(color.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
+        currScore = scoreManager.similarity(Float(color.0), Float(color.1), Float(color.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
         currScore = currScore + 5 * (count)
         // display confirmation msg, disable submit button
     }
