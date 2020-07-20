@@ -6,6 +6,7 @@ target 'ColorQuest' do
   use_frameworks!
 
   pod 'Firebase/Analytics'
+  pod 'PMSuperButton'
   # Pods for ColorQuest
 
 end
