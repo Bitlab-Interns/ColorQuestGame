@@ -8,6 +8,8 @@
 
 //TODO disable submit button when no picture is taken
 // disable submit button after submission and display confirmation msg
+// reset photo after submission
+// score resets after round ends
 
 import UIKit
 import AVFoundation
