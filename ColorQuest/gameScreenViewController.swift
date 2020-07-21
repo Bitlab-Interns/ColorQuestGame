@@ -284,6 +284,7 @@ class gameScreenViewController: UIViewController {
     // update ui
     func moveToNextRound(_ lastScore: Int) { // lastScore = score earned in previous round
         totalScore = totalScore + lastScore
+        currScore = 0
         scoreLabel.text = String(totalScore)
         currRound += 1
         roundLabel.text = "Round \(currRound)"
