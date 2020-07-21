@@ -7,9 +7,13 @@
 //
 
 //TODO disable submit button when no picture is taken
-// disable submit button after submission and display confirmation msg
+// disable submit button after submission and display confirmation msg("congrats you submitted, you earned x points, waiting for other players to finish"
 // reset photo after submission
 // score resets after round ends
+//leaderboard storyboard
+    //display between each round and at the end of the game
+//make a home page with two buttons, one for multiplayer and one for single player
+
 
 import UIKit
 import AVFoundation
@@ -40,6 +44,8 @@ class gameScreenViewController: UIViewController {
     
     @IBOutlet weak var goalColorImageView: UIImageView!
     
+    
+    var maxRounds = 5
     let scoreManager = ScoreManager()
     var guessColor: UIColor!
     var currRound = 1
@@ -283,6 +289,7 @@ class gameScreenViewController: UIViewController {
 
     // update ui
     func moveToNextRound(_ lastScore: Int) { // lastScore = score earned in previous round
+        maxRounds = maxRounds - 1
         totalScore = totalScore + lastScore
         currScore = 0
         scoreLabel.text = String(totalScore)
