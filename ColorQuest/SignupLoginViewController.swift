@@ -8,6 +8,7 @@
 
 import UIKit
 import PMSuperButton
+import Firebase
 
 class SignupLoginViewController: UIViewController {
 
@@ -20,15 +21,70 @@ class SignupLoginViewController: UIViewController {
     @IBOutlet weak var boxImage: UIImageView!
     
     var index : Int = 0
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setAll()
+        
+        ref = Database.database().reference()
 
         
         enterButton.touchUpInside {
+//            self.enterButton.titleLabel!.text = " "
             self.enterButton.showLoader()
-            self.enterButton.titleLabel?.text = " "
+            self.enterButton.setTitle("", for: .normal)
+            
+            
+            
+            
+            if (self.password.text?.isEmpty ?? true || self.username.text?.isEmpty ?? true) {
+                            print("jeff")
+            //                self.switchButton(self.switchOutlet)
+                            print("THERE IS AN ERROR")
+                            let alert = UIAlertController(title: "Registration Error", message: "Please make sure you have completed filled out every textfield", preferredStyle: .alert)
+                            
+                            let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
+                                self.enterButton.hideLoader()
+                                self.enterButton.setTitle("Join", for: .normal)
+                                return
+                            }
+                            
+                            alert.addAction(OK)
+                            self.present(alert, animated: true, completion: nil)
+                            
+                        } else {
+                
+                            Auth.auth().createUser(withEmail: self.username.text!, password: self.password.text!) { (user, error) in
+                                if (error == nil) {
+                                    self.ref.child("Players").child(Auth.auth().currentUser!.uid).setValue(["username" : self.username.text])
+                                    
+                                    
+//                                    self.performSegue(withIdentifier: "toUserHome", sender: self)
+                                    
+                                    //                                                self.performSegue(withIdentifier: "UserToLogin", sender: self)
+                                    //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
+                                } else {
+                                    //                    SVProgressHUD.dismiss()
+                                    let alert = UIAlertController(title: "Registration Error", message: error?.localizedDescription as! String, preferredStyle: .alert)
+                                    
+                                    let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+                                        self.password.text = ""
+                                        self.enterButton.hideLoader()
+                                        self.enterButton.setTitle("Join", for: .normal)
+                                    })
+                                    
+                                    alert.addAction(OK)
+                                    self.present(alert, animated: true, completion: nil)
+                                    print("--------------------------------")
+                                    print("Error: \(error?.localizedDescription)")
+                                    print("--------------------------------")
+                                }
+                            }
+                            
+                            
+                        }
+            
         }
         // Do any additional setup after loading the view.
     }
