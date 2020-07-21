@@ -37,7 +37,7 @@ class SignupLoginViewController: UIViewController {
             
             
             
-            
+            if (self.switchLoginReg.selectedSegmentIndex == 0) {
             if (self.password.text?.isEmpty ?? true || self.username.text?.isEmpty ?? true) {
                             print("jeff")
             //                self.switchButton(self.switchOutlet)
@@ -84,6 +84,66 @@ class SignupLoginViewController: UIViewController {
                             
                             
                         }
+            }
+            else {
+                Auth.auth().signIn(withEmail: self.username.text!, password: self.password.text!) { (user, error) in
+                    if (error == nil) {
+                        
+//                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//                            guard let value = snapshot.value as? NSDictionary else {
+//                                print("No Data!!!")
+//                                return
+//                            }
+//                            let status = value["Status"] as! String
+//
+//
+//                            print (status)
+//                            if (status == "User") {
+//                                self.performSegue(withIdentifier: "toUserHome", sender: self)
+//                            }
+//                            else {
+//                                self.performSegue(withIdentifier: "toCompanyHome", sender: self)
+//                            }
+//
+//
+//                        }) { (error) in
+//                            print("error:\(error.localizedDescription)")
+//                        }
+                        //
+                        
+                    } else {
+                        
+                        
+                        let alert = UIAlertController(title: "Login Error", message: "Incorrect username or password", preferredStyle: .alert)
+                        let forgotPassword = UIAlertAction(title: "Forgot Password?", style: .default, handler: { (UIAlertAction) in
+                            //do the forgot password shit
+                        })
+                        
+                        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { (UIAlertAction) in
+                            //do nothing
+                            self.enterButton.hideLoader()
+                            //            var state: UIControl.State = UIControl.State()
+                            self.enterButton.setTitle("Login", for: .normal)
+                        })
+                        
+                        alert.addAction(forgotPassword)
+                        alert.addAction(cancel)
+                        self.present(alert, animated: true, completion: nil)
+                        print("error with logging in: ", error!)
+                        self.enterButton.hideLoader()
+                        self.enterButton.hideLoader()
+                        self.enterButton.setTitle("Join", for: .normal)
+                    }
+                    self.enterButton.hideLoader()
+                    //            var state: UIControl.State = UIControl.State()
+                    self.enterButton.setTitle("Join", for: .normal)
+                }
+            }
+            
+            
+            
+            
             
         }
         // Do any additional setup after loading the view.
@@ -109,13 +169,6 @@ class SignupLoginViewController: UIViewController {
     }
      
     @IBAction func switchOther(_ sender: Any) {
-        
-//        if switchLoginReg.selectedSegmentIndex == 0 {
-//             enterButton.titleLabel?.text = " "
-//        }
-//        else {
-//            enterButton.titleLabel?.text = "Login"
-//        }
     }
 
     /*
