@@ -285,11 +285,16 @@ class gameScreenViewController: UIViewController {
         currScore = scoreManager.similarity(Float(color.0), Float(color.1), Float(color.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
         currScore = currScore + 5 * (count)
         // display confirmation msg, disable submit button
+        maxRounds = maxRounds - 1
+        if maxRounds == 0 {
+            // display leaderboard
+        } else {
+            moveToNextRound(currScore)
+        }
     }
 
     // update ui
     func moveToNextRound(_ lastScore: Int) { // lastScore = score earned in previous round
-        maxRounds = maxRounds - 1
         totalScore = totalScore + lastScore
         currScore = 0
         scoreLabel.text = String(totalScore)
