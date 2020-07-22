@@ -63,7 +63,7 @@ class SignupLoginViewController: UIViewController {
 //                                    self.performSegue(withIdentifier: "toUserHome", sender: self)
                                     
                                     //                                                self.performSegue(withIdentifier: "UserToLogin", sender: self)
-                                    //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
+                                                        self.performSegue(withIdentifier: "toHome", sender: self)
                                 } else {
                                     //                    SVProgressHUD.dismiss()
                                     let alert = UIAlertController(title: "Registration Error", message: error?.localizedDescription as! String, preferredStyle: .alert)
@@ -100,7 +100,7 @@ class SignupLoginViewController: UIViewController {
 //
 //                            print (status)
 //                            if (status == "User") {
-//                                self.performSegue(withIdentifier: "toUserHome", sender: self)
+                                self.performSegue(withIdentifier: "toHome", sender: self)
 //                            }
 //                            else {
 //                                self.performSegue(withIdentifier: "toCompanyHome", sender: self)

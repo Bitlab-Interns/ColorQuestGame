@@ -306,11 +306,12 @@
             <objects>
                 <viewController id="GyK-xS-5ih" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K22-4E-ZGP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ffk-XY-usr"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fud-9B-jKn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5a-oz-jOW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -394,6 +395,7 @@
                         <outlet property="switchLoginReg" destination="f58-3B-JWr" id="fPh-Mc-nXh"/>
                         <outlet property="titleLabel" destination="tQz-ns-Dsc" id="VYx-Ed-JgF"/>
                         <outlet property="username" destination="KHR-iO-bU9" id="Bv6-3X-aKb"/>
+                        <segue destination="GyK-xS-5ih" kind="show" identifier="toHome" id="ERy-iY-7P5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jot-as-zdu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
