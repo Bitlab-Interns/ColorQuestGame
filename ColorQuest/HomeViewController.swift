@@ -143,7 +143,7 @@ class HomeViewController: UIViewController {
                                              
                                              
                                           self.ref.child("Games").child(self.textField.text!).child("Participants").updateChildValues([Auth.auth().currentUser!.uid : "Username"])
-//                                          self.ref.child("Games").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!])
+//                                          self.ref.child("Games").child(self.textField.textyay!).updateChildValues(["ID" : self.textField.text!])
                                              
                                              return
                                          }
