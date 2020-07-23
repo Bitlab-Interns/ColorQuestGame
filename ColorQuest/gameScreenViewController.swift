@@ -17,8 +17,13 @@
 
 import UIKit
 import AVFoundation
+import Firebase
 
 class gameScreenViewController: UIViewController {
+    
+    var ref: DatabaseReference!
+    var username: String!
+    var userId: String!
     
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
@@ -62,7 +67,10 @@ class gameScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switchMode1()
+        ref = Database.database().reference()
+        userId = Auth.auth().currentUser!.uid
+        ref.child("\(userId)/username").observeSingleEvent(of: .value) { (snapshot) in let username = snapshot.value as? String
+        }
         
         var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
         
@@ -284,6 +292,7 @@ class gameScreenViewController: UIViewController {
         let tempColor = guessColor.components
         currScore = scoreManager.similarity(Float(color.0), Float(color.1), Float(color.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
         currScore = currScore + 5 * (count)
+        
         // display confirmation msg, disable submit button
         maxRounds = maxRounds - 1
         if maxRounds == 0 {
@@ -295,7 +304,18 @@ class gameScreenViewController: UIViewController {
 
     // update ui
     func moveToNextRound(_ lastScore: Int) { // lastScore = score earned in previous round
+        
         totalScore = totalScore + lastScore
+        // upload totalScore
+        //extract every other player score
+        // send as parameters into moveToLeaderboard func
+        ref.child(userId).child(username).setValue(["score":"\(totalScore)"])
+        // might have to add delay here to wait for everyone to update score
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in for child in snapshot.children {
+                
+            }
+        })
+        // move to leaderboard
         currScore = 0
         scoreLabel.text = String(totalScore)
         currRound += 1
@@ -307,6 +327,17 @@ class gameScreenViewController: UIViewController {
         let b = CGFloat(Double(color.2) / 255.0)
         guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
         goalColorImageView.backgroundColor = guessColor
+    }
+    
+    func moveToLeaderboard() {
+        
+        // extract all player scores from firebase
+        // create dictionary and sort it by scores
+        // return array
+        // show scores
+        // 5 second delay
+        
+        
     }
     
     
