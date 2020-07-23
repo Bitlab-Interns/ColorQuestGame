@@ -125,11 +125,11 @@
                         <viewControllerLayoutGuide type="bottom" id="qXj-vb-MNa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="08S-Yw-gfD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-X3-shg">
-                                <rect key="frame" x="177" y="782" width="60" height="60"/>
+                                <rect key="frame" x="177" y="728" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="UAx-jJ-I4F"/>
@@ -153,7 +153,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpg-Os-ZRf">
-                                <rect key="frame" x="147" y="84" width="120.5" height="33"/>
+                                <rect key="frame" x="147" y="40" width="120.5" height="33"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="28"/>
                                 <color key="textColor" red="0.33333333329999998" green="0.35686274509999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -178,13 +178,13 @@
                                 <rect key="frame" x="116" y="136" width="182" height="183"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yi-NB-Dyg">
-                                <rect key="frame" x="30" y="74" width="38" height="21"/>
+                                <rect key="frame" x="30" y="30" width="38" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bZ-D8-rVf">
-                                <rect key="frame" x="339" y="74" width="45" height="20.5"/>
+                                <rect key="frame" x="339" y="30" width="45" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -224,6 +224,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ldn-9J-sRW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fpC-eY-MPd"/>
                     <connections>
                         <outlet property="boxImage" destination="Vyd-C2-NbE" id="aMJ-ct-ahR"/>
                         <outlet property="cameraButton" destination="aeO-X3-shg" id="ptp-oH-7fZ"/>
@@ -312,45 +313,13 @@
         <!--Home View Controller-->
         <scene sceneID="Zb5-0M-l4w">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="GyK-xS-5ih" customClass="HomeViewController" customModule="absl" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="GyK-xS-5ih" customClass="HomeViewController" customModule="ColorQuest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K22-4E-ZGP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="kyJ-iN-gPH">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0c-EJ-qlj" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="20" y="296" width="374" height="109"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.33333333329999998" green="0.32549019610000002" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="30"/>
-                                <state key="normal" title="PLAY">
-                                    <color key="titleColor" red="0.90900618649999998" green="0.89297852919999998" blue="0.90726412759999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gradientEnabled" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientStartColor">
-                                        <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
-                                        <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gradientHorizontal" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRN-d7-Swf" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="20" y="426" width="175" height="109"/>
+                                <rect key="frame" x="20" y="361" width="175" height="109"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.32549019610000002" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="30"/>
@@ -373,12 +342,12 @@
                                         <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
-                                        <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sO4-ph-zCp" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="219" y="426" width="175" height="109"/>
+                                <rect key="frame" x="219" y="361" width="175" height="109"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.32549019610000002" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="30"/>
@@ -406,7 +375,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waa-rq-CQo" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="20" y="571" width="374" height="109"/>
+                                <rect key="frame" x="20" y="500" width="374" height="109"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.32549019610000002" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="30"/>
@@ -433,16 +402,43 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="gradientHorizontal" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0c-EJ-qlj" customClass="PMSuperButton" customModule="PMSuperButton">
+                                <rect key="frame" x="20" y="222" width="374" height="109"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.32549019610000002" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="30"/>
+                                <state key="normal" title="PLAY">
+                                    <color key="titleColor" red="0.90900618649999998" green="0.89297852919999998" blue="0.90726412759999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gradientEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientStartColor">
+                                        <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
+                                        <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gradientHorizontal" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="Ffk-XY-usr"/>
                     </view>
                     <navigationItem key="navigationItem" id="fud-9B-jKn"/>
                     <connections>
-                        <outlet property="create" destination="lRN-d7-Swf" id="Cwd-Dc-xEU"/>
-                        <outlet property="join" destination="sO4-ph-zCp" id="IXb-js-iGj"/>
-                        <outlet property="playButton" destination="A0c-EJ-qlj" id="Tx6-oE-Ccp"/>
-                        <outlet property="stats" destination="waa-rq-CQo" id="Qdc-Iu-tfy"/>
+                        <outlet property="createButton" destination="lRN-d7-Swf" id="3MB-cl-onb"/>
+                        <outlet property="joinButton" destination="sO4-ph-zCp" id="7DV-WW-S1u"/>
+                        <segue destination="Pf4-6G-NwN" kind="show" identifier="toGame" id="Iud-Ok-t86"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5a-oz-jOW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

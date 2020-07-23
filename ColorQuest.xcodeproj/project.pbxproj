@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		895F577B24C95B7F000EC02F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895F577A24C95B7F000EC02F /* HomeViewController.swift */; };
 		897E514D24C5539E006C9131 /* SignupLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897E514C24C5539E006C9131 /* SignupLoginViewController.swift */; };
 		899E655D24BE91D5003E8D3D /* gameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899E655C24BE91D5003E8D3D /* gameScreenViewController.swift */; };
 		899E655F24BE91E0003E8D3D /* cameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899E655E24BE91E0003E8D3D /* cameraViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		3C5B71394B5571BE09E7953B /* Pods-ColorQuest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorQuest.debug.xcconfig"; path = "Target Support Files/Pods-ColorQuest/Pods-ColorQuest.debug.xcconfig"; sourceTree = "<group>"; };
 		79FFDA8D50A8ADD03F2BAC8F /* Pods-ColorQuest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorQuest.release.xcconfig"; path = "Target Support Files/Pods-ColorQuest/Pods-ColorQuest.release.xcconfig"; sourceTree = "<group>"; };
+		895F577A24C95B7F000EC02F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		897E514C24C5539E006C9131 /* SignupLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupLoginViewController.swift; sourceTree = "<group>"; };
 		899E655C24BE91D5003E8D3D /* gameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameScreenViewController.swift; sourceTree = "<group>"; };
 		899E655E24BE91E0003E8D3D /* cameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cameraViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				89AD2B2124BC225E008B4696 /* SceneDelegate.swift */,
 				89AD2B2324BC225E008B4696 /* ViewController.swift */,
 				89AD2B2524BC225E008B4696 /* Main.storyboard */,
+				895F577A24C95B7F000EC02F /* HomeViewController.swift */,
 				897E514C24C5539E006C9131 /* SignupLoginViewController.swift */,
 				899E655C24BE91D5003E8D3D /* gameScreenViewController.swift */,
 				899E655E24BE91E0003E8D3D /* cameraViewController.swift */,
@@ -230,6 +233,7 @@
 				899E655F24BE91E0003E8D3D /* cameraViewController.swift in Sources */,
 				89AD2B2424BC225E008B4696 /* ViewController.swift in Sources */,
 				ECC1B59A24C2E932000C050E /* scoreManager.swift in Sources */,
+				895F577B24C95B7F000EC02F /* HomeViewController.swift in Sources */,
 				899E655D24BE91D5003E8D3D /* gameScreenViewController.swift in Sources */,
 				89AD2B2024BC225E008B4696 /* AppDelegate.swift in Sources */,
 				89AD2B2224BC225E008B4696 /* SceneDelegate.swift in Sources */,
