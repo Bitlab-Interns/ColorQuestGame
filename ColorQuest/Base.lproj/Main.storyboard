@@ -128,13 +128,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-X3-shg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-X3-shg">
                                 <rect key="frame" x="177" y="728" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="UAx-jJ-I4F"/>
-                                    <constraint firstAttribute="width" constant="60" id="bf9-ui-rON"/>
-                                </constraints>
                                 <connections>
                                     <action selector="cameraButton_TouchUpInside:" destination="Pf4-6G-NwN" eventType="touchUpInside" id="bdI-5n-aRB"/>
                                 </connections>
@@ -212,6 +208,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aeO-X3-shg" firstAttribute="height" secondItem="08S-Yw-gfD" secondAttribute="height" multiplier="0.0669643" id="13C-zy-iXo"/>
+                            <constraint firstItem="Ldn-9J-sRW" firstAttribute="bottom" secondItem="aeO-X3-shg" secondAttribute="bottom" constant="74" id="3xo-du-gLI"/>
+                            <constraint firstItem="aeO-X3-shg" firstAttribute="top" secondItem="Ldn-9J-sRW" secondAttribute="top" constant="684" id="Dg5-rz-mfp"/>
+                            <constraint firstItem="Ldn-9J-sRW" firstAttribute="trailing" secondItem="aeO-X3-shg" secondAttribute="trailing" constant="177" id="IZS-4p-CVZ"/>
+                            <constraint firstItem="aeO-X3-shg" firstAttribute="leading" secondItem="Ldn-9J-sRW" secondAttribute="leading" constant="177" id="jFH-qB-qNq"/>
+                            <constraint firstItem="aeO-X3-shg" firstAttribute="width" secondItem="08S-Yw-gfD" secondAttribute="width" multiplier="0.144928" id="r9e-eK-7fV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ldn-9J-sRW"/>
                     </view>
                     <navigationItem key="navigationItem" id="fpC-eY-MPd"/>
@@ -224,6 +228,7 @@
                         <outlet property="retakeButton" destination="AFO-Ct-AcZ" id="m8d-Fb-gDf"/>
                         <outlet property="roundLabel" destination="kpg-Os-ZRf" id="ECL-CI-JYn"/>
                         <outlet property="scoreLabel" destination="0bZ-D8-rVf" id="Lhx-Vy-i0G"/>
+                        <outlet property="submitButton" destination="wlN-Uj-B9X" id="07y-Fh-d9t"/>
                         <outlet property="timeLabel" destination="7Yi-NB-Dyg" id="TJi-JG-WFr"/>
                         <segue destination="ikS-QI-Kax" kind="presentation" identifier="Preview_Segue" animates="NO" id="zil-Sm-ogI"/>
                     </connections>

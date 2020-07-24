@@ -34,6 +34,7 @@ class gameScreenViewController: UIViewController {
     @IBOutlet weak var boxImage: UIImageView!
     var captureSession = AVCaptureSession()
     
+    @IBOutlet weak var submitButton: UIButton!
     var backCamera: AVCaptureDevice?
     var frontCamera: AVCaptureDevice?
     var currentDevice: AVCaptureDevice?
@@ -278,6 +279,7 @@ class gameScreenViewController: UIViewController {
         croppedImage.isHidden = true
         boxImage.isHidden = false
         cameraButton.isHidden = false
+        submitButton.isHidden = true
         
     }
     
@@ -287,6 +289,7 @@ class gameScreenViewController: UIViewController {
         croppedImage.isHidden = false
         boxImage.isHidden = true
         cameraButton.isHidden = true
+        submitButton.isHidden = false
     }
 
     @IBAction func submitPhoto(_ sender: UIButton) {
