@@ -127,7 +127,7 @@ class gameScreenViewController: UIViewController {
     
     func imageIsNullOrNot(imageName : UIImage)-> Bool {
         let size = CGSize(width: 0, height: 0)
-        if (imageName.size.width == size.width) {
+        if (imageName.size.width > 0) {
             return false
         } else {
             return true
