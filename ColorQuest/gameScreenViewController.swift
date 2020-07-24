@@ -353,7 +353,7 @@ class gameScreenViewController: UIViewController {
         currScore = 0
         scoreLabel.text = String(totalScore)
         currRound += 1
-        roundLabel.text = "Round \(currRound)"
+        roundLabel.text = "Round: \(currRound)"
         count = totalTime
         let color = scoreManager.generatergb()
         let r = CGFloat(Double(color.0) / 255.0)
