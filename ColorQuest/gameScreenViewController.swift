@@ -331,7 +331,7 @@ class gameScreenViewController: UIViewController {
 //
 //            // ...
 //            }) { (error) in
-//                print(error.localizedDescription)
+//                print(error.localizedDessdfcription)
 //        }
         ref.child("Games/\(gameID)/Participants").observeSingleEvent(of: .value, with: { (snapshot) in
             for users in snapshot.children.allObjects as! [DataSnapshot] {
