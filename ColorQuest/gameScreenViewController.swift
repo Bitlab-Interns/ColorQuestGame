@@ -325,12 +325,32 @@ class gameScreenViewController: UIViewController {
         // upload totalScore
         //extract every other player score
         // send as parameters into moveToLeaderboard func
-        ref.child(userId).child(username).setValue(["score":"\(totalScore)"])
+        ref.child("Games/\(gameID)/Participants/\(username)").updateChildValues(["score":totalScore])
         // might have to add delay here to wait for everyone to update score
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in for child in snapshot.children {
-                
+//        ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+//            let score = value?["score"] as! String
+//
+//            // ...
+//            }) { (error) in
+//                print(error.localizedDescription)
+//        }
+        ref.child("Games/\(gameID)/Participants").observeSingleEvent(of: .value, with: { (snapshot) in
+            for users in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = users.value as? NSDictionary else {
+                    return
+                }
+                let name = value["username"] as! String
+                let score = value["score"] as! String
+            
             }
-        })
+        }) { (error) in
+            print("error:(error.localizedDescription)")
+        }
+        
+        
+
         // move to leaderboard
         currScore = 0
         scoreLabel.text = String(totalScore)
