@@ -99,7 +99,7 @@ class HomeViewController: UIViewController {
                         }
                         alert.addTextField { (alertTextField1) in
                             alertTextField1.placeholder = "Rounds"
-//                            self.topicTextField = alertTextField1
+//                            self.topicTextField = alertTexdftField1
                         }
                         
                         self.present(alert, animated: true, completion: nil)
