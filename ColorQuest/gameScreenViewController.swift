@@ -25,7 +25,7 @@ class gameScreenViewController: UIViewController {
     
     var ref: DatabaseReference!
 //    var username: String!
-    var userId: String!
+    var leaderboard: [String: String] = [:]
     
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
@@ -74,9 +74,6 @@ class gameScreenViewController: UIViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        userId = Auth.auth().currentUser!.uid
-        ref.child("\(userId)/username").observeSingleEvent(of: .value) { (snapshot) in let username = snapshot.value as? String
-        }
         
         var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
         
@@ -343,6 +340,7 @@ class gameScreenViewController: UIViewController {
                 }
                 let name = value["username"] as! String
                 let score = value["score"] as! String
+                self.leaderboard[name] = score
             
             }
         }) { (error) in
