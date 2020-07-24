@@ -24,7 +24,7 @@ import Firebase
 class gameScreenViewController: UIViewController {
     
     var ref: DatabaseReference!
-    var username: String!
+//    var username: String!
     var userId: String!
     
     @IBOutlet weak var gameImage: UIImageView!
@@ -66,6 +66,10 @@ class gameScreenViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
+    
+    var username : String = ""
+
+    var gameID : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         

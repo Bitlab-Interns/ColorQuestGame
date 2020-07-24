@@ -26,6 +26,8 @@ class HomeViewController: UIViewController {
     
     var username : String = ""
     
+    var gameID : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -66,6 +68,10 @@ class HomeViewController: UIViewController {
                                 
                                     self.ref.child("Games").child(self.textField.text!).child("Participants").child(String(self.username)).updateChildValues(["username" : self.username])
                                     self.ref.child("Games").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!])
+                                    
+                                    self.gameID = self.textField.text!
+                                    
+                                    performSegue(withIdentifier: "toGame", sender: self)
 //                                    self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0, "numVoted" : 0])
                                     
             //                        self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").child("Friday").updateChildValues(["Friday" : 0])
@@ -93,7 +99,7 @@ class HomeViewController: UIViewController {
                         }
                         alert.addTextField { (alertTextField1) in
                             alertTextField1.placeholder = "Rounds"
-//                            self.topicTextField = alertTextField1
+//                            self.topicTextField = alertTexdftField1
                         }
                         
                         self.present(alert, animated: true, completion: nil)
@@ -146,6 +152,10 @@ class HomeViewController: UIViewController {
                                              
                                              
                                           self.ref.child("Games").child(self.textField.text!).child("Participants").child(String(self.username)).updateChildValues(["username" : self.username])
+                                            
+                                            self.gameID = self.textField.text!
+                                            
+                                            performSegue(withIdentifier: "toGame", sender: self)
 //                                          self.ref.child("Games").child(self.textField.textyay!).updateChildValues(["ID" : self.textField.text!])
                                              
                                              return
@@ -196,10 +206,22 @@ class HomeViewController: UIViewController {
         }
         
         
+        
+        
+        
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toGame") {
+            let secondVC = segue.destination as! gameScreenViewController
+            secondVC.username = username
+            secondVC.gameID = gameID
+        }
+    }
     /*
     // MARK: - Navigation
 
