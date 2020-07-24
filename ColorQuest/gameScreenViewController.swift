@@ -10,9 +10,11 @@
 // disable submit button after submission and display confirmation msg("congrats you submitted, you earned x points, waiting for other players to finish"
 // reset photo after submission
 // score resets after round ends
-//leaderboard storyboard
-    //display between each round and at the end of the game
-//make a home page with two buttons, one for multiplayer and one for single player
+// leaderboard storyboard
+// display between each round and at the end of the game
+// make a home page with two buttons, one for multiplayer and one for single player
+// make lobby page that shows players with start button
+// delete game lobby after game
 
 
 import UIKit
@@ -288,17 +290,27 @@ class gameScreenViewController: UIViewController {
 
     @IBAction func submitPhoto(_ sender: UIButton) {
 
-        let color = submission.averageColor! // average color of user's submission
-        let tempColor = guessColor.components
-        currScore = scoreManager.similarity(Float(color.0), Float(color.1), Float(color.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
-        currScore = currScore + 5 * (count)
-        
-        // display confirmation msg, disable submit button
-        maxRounds = maxRounds - 1
-        if maxRounds == 0 {
-            // display leaderboard
+        if (imageIsNullOrNot(imageName: submission)) { // if image not null
+            
+            // alert
+            let alert = UIAlertController(title: "Submission Unsuccessful", message: "Please take a picture", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
         } else {
-            moveToNextRound(currScore)
+            let color = submission.averageColor! // average color of user's submission
+            let tempColor = guessColor.components
+            currScore = scoreManager.similarity(Float(color.0), Float(color.1), Float(color.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
+            currScore = currScore + 5 * (count)
+            
+            // display confirmation msg, disable submit button
+            maxRounds = maxRounds - 1
+            if maxRounds == 0 {
+                // display leaderboard
+            } else {
+                moveToNextRound(currScore)
+            }
+            retakePressed(self)
         }
     }
 
