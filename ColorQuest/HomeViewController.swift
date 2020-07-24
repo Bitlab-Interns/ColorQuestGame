@@ -24,10 +24,13 @@ class HomeViewController: UIViewController {
     
     var ref: DatabaseReference!
     
+    var username : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
         
+//        print("username)")
         
         createButton.touchUpInside() {
                         let alert = UIAlertController(title: "Enter code to create class", message: "", preferredStyle: .alert)
@@ -59,9 +62,9 @@ class HomeViewController: UIViewController {
                                     self.present(alert1, animated: true, completion: nil)
                                 }
                                 else {
-                                    self.ref.child("Players").child(Auth.auth().currentUser!.uid).updateChildValues(["CurrentGame" : self.textField.text!])
+                                    self.ref.child("Players").child(self.username).updateChildValues(["CurrentGame" : self.textField.text!])
                                 
-                                    self.ref.child("Games").child(self.textField.text!).child("Participants").updateChildValues(["AuthID" : Auth.auth().currentUser!.uid])
+                                    self.ref.child("Games").child(self.textField.text!).child("Participants").child(String(self.username)).updateChildValues(["username" : self.username])
                                     self.ref.child("Games").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!])
 //                                    self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0, "numVoted" : 0])
                                     
@@ -137,12 +140,12 @@ class HomeViewController: UIViewController {
                                          if (isEqual) {
                                           
                                           
-                                          self.ref.child("Players").child(Auth.auth().currentUser!.uid).updateChildValues(["CurrentGame" : self.textField.text!])
+                                          self.ref.child("Players").child(self.username).updateChildValues(["CurrentGame" : self.textField.text!])
               
                                              
                                              
                                              
-                                          self.ref.child("Games").child(self.textField.text!).child("Participants").updateChildValues([Auth.auth().currentUser!.uid : "Username"])
+                                          self.ref.child("Games").child(self.textField.text!).child("Participants").child(String(self.username)).updateChildValues(["username" : self.username])
 //                                          self.ref.child("Games").child(self.textField.textyay!).updateChildValues(["ID" : self.textField.text!])
                                              
                                              return
