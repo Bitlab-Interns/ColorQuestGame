@@ -294,7 +294,7 @@ class gameScreenViewController: UIViewController {
 
     @IBAction func submitPhoto(_ sender: UIButton) {
 
-        if (submission == nil) { // if image not null
+        if (submission == nil) { // if image null
             
             // alert
             let alert = UIAlertController(title: "Submission Unsuccessful", message: "Please take a picture", preferredStyle: UIAlertController.Style.alert)
@@ -302,6 +302,15 @@ class gameScreenViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             
         } else {
+            let alert = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
+            //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            let when = DispatchTimeInterval.seconds(count)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + when){
+              // your code with delay
+              alert.dismiss(animated: true, completion: nil)
+            }
+            
             moveToNextRound()
             retakePressed(self)
         }
@@ -319,14 +328,6 @@ class gameScreenViewController: UIViewController {
             currScore = currScore + 5 * (count)
         }
         
-        let alert = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        do {
-            sleep(UInt32(count))
-        }
-        self.dismiss(animated: true, completion: nil)
-        
         // display confirmation msg, disable submit button
         totalScore = totalScore + currScore
         // upload totalScore
@@ -343,19 +344,6 @@ class gameScreenViewController: UIViewController {
 //            }) { (error) in
 //                print(error.localizedDessdfcription)
 //        }
-        ref.child("Games/\(gameID)/Participants").observeSingleEvent(of: .value, with: { (snapshot) in
-            for users in snapshot.children.allObjects as! [DataSnapshot] {
-                guard let value = users.value as? NSDictionary else {
-                    return
-                }
-                let name = value["username"] as! String
-                let score = value["score"] as! String
-                self.leaderboard[name] = score
-            
-            }
-        }) { (error) in
-            print("error:(error.localizedDescription)")
-        }
         
         
 
@@ -371,6 +359,7 @@ class gameScreenViewController: UIViewController {
         let b = CGFloat(Double(newColor.2) / 255.0)
         guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
         goalColorImageView.backgroundColor = guessColor
+        submission = nil
     }
     
     func moveToLeaderboard() {
