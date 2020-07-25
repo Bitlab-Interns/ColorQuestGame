@@ -59,7 +59,7 @@ class gameScreenViewController: UIViewController {
     var currRound = 1
     let totalTime = 10
     lazy var count = totalTime
-    var submission: UIImage!
+    var submission: UIImage? = nil
     var totalScore = 0
     var currScore = 0 // score earned in a round
     
@@ -294,7 +294,7 @@ class gameScreenViewController: UIViewController {
 
     @IBAction func submitPhoto(_ sender: UIButton) {
 
-        if (imageIsNullOrNot(imageName: submission)) { // if image not null
+        if (submission == nil) { // if image not null
             
             // alert
             let alert = UIAlertController(title: "Submission Unsuccessful", message: "Please take a picture", preferredStyle: UIAlertController.Style.alert)
@@ -310,18 +310,22 @@ class gameScreenViewController: UIViewController {
     // update ui
     func moveToNextRound() { // lastScore = score earned in previous round
         
-        if (imageIsNullOrNot(imageName: submission)) {
+        if (submission == nil) {
             currScore = 0
         } else {
-            let submissionColor = submission.averageColor! // average color of user's submission
+            let submissionColor = submission!.averageColor! // average color of user's submission
             let tempColor = guessColor.components
             currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
             currScore = currScore + 5 * (count)
         }
         
         let alert = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        do {
+            sleep(UInt32(count))
+        }
+        self.dismiss(animated: true, completion: nil)
         
         // display confirmation msg, disable submit button
         totalScore = totalScore + currScore
