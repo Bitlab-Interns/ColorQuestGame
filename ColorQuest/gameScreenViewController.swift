@@ -120,7 +120,7 @@ class gameScreenViewController: UIViewController {
 //            } else {
 //                moveToNextRound(0)
 //            }
-            moveToNextRound(currScore)
+            moveToNextRound()
 
         }
     }
