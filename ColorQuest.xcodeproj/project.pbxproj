@@ -19,6 +19,7 @@
 		89AD2B2C24BC225F008B4696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AD2B2B24BC225F008B4696 /* Assets.xcassets */; };
 		89AD2B2F24BC225F008B4696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89AD2B2D24BC225F008B4696 /* LaunchScreen.storyboard */; };
 		89AD2B3724BC22A4008B4696 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89AD2B3624BC22A4008B4696 /* GoogleService-Info.plist */; };
+		89B5482924CBF6E100855802 /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B5482824CBF6E100855802 /* popUpViewController.swift */; };
 		97C1322FD6C96B0049F0493C /* Pods_ColorQuest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9107E6DE0BC3704260890695 /* Pods_ColorQuest.framework */; };
 		ECC1B59A24C2E932000C050E /* scoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1B59924C2E932000C050E /* scoreManager.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		89AD2B2E24BC225F008B4696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89AD2B3024BC225F008B4696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89AD2B3624BC22A4008B4696 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89B5482824CBF6E100855802 /* popUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
 		9107E6DE0BC3704260890695 /* Pods_ColorQuest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColorQuest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC1B59924C2E932000C050E /* scoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 				89AD2B2124BC225E008B4696 /* SceneDelegate.swift */,
 				89AD2B2324BC225E008B4696 /* ViewController.swift */,
 				89AD2B2524BC225E008B4696 /* Main.storyboard */,
+				89B5482824CBF6E100855802 /* popUpViewController.swift */,
 				895F577A24C95B7F000EC02F /* HomeViewController.swift */,
 				897E514C24C5539E006C9131 /* SignupLoginViewController.swift */,
 				899E655C24BE91D5003E8D3D /* gameScreenViewController.swift */,
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				897E514D24C5539E006C9131 /* SignupLoginViewController.swift in Sources */,
+				89B5482924CBF6E100855802 /* popUpViewController.swift in Sources */,
 				89AD2B2A24BC225E008B4696 /* ColorQuest.xcdatamodeld in Sources */,
 				899E655F24BE91E0003E8D3D /* cameraViewController.swift in Sources */,
 				89AD2B2424BC225E008B4696 /* ViewController.swift in Sources */,
