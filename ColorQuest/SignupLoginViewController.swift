@@ -75,6 +75,7 @@ class SignupLoginViewController: UIViewController {
             boxImage.layer.shadowOpacity = 0.5
             boxImage.layer.shadowRadius = 5
             boxImage.clipsToBounds = false
+            boxImage.layer.cornerRadius = 20
             titleLabel.layer.shadowColor = UIColor.black.cgColor
             titleLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
             titleLabel.layer.shadowOpacity = 0.5
