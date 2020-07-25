@@ -24,7 +24,7 @@ class popUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
+//        tableView.delegate = self
 //        tableView.dataSource = self
         
         ref = Database.database().reference()
@@ -56,12 +56,12 @@ class popUpViewController: UIViewController {
 
 }
 
-extension popUpViewController: UITableViewDelegate {
-func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
-    
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        return 1
-    }
-}
+//extension popUpViewController: UITableViewDelegate {
+//func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    }
+//
+//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//
+//        return 1
+//    }
+//}
