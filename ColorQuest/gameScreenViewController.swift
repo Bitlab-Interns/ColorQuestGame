@@ -310,10 +310,14 @@ class gameScreenViewController: UIViewController {
     // update ui
     func moveToNextRound() { // lastScore = score earned in previous round
         
-        let submissionColor = submission.averageColor! // average color of user's submission
-        let tempColor = guessColor.components
-        currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
-        currScore = currScore + 5 * (count)
+        if (imageIsNullOrNot(imageName: submission)) {
+            currScore = 0
+        } else {
+            let submissionColor = submission.averageColor! // average color of user's submission
+            let tempColor = guessColor.components
+            currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
+            currScore = currScore + 5 * (count)
+        }
         
         let alert = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
