@@ -311,7 +311,6 @@ class gameScreenViewController: UIViewController {
               alert.dismiss(animated: true, completion: nil)
             }
             
-            moveToNextRound()
             retakePressed(self)
         }
     }
