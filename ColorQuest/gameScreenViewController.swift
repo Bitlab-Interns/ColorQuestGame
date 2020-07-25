@@ -302,26 +302,25 @@ class gameScreenViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             
         } else {
-            let color = submission.averageColor! // average color of user's submission
-            let tempColor = guessColor.components
-            currScore = scoreManager.similarity(Float(color.0), Float(color.1), Float(color.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
-            currScore = currScore + 5 * (count)
-            
-            // display confirmation msg, disable submit button
-            maxRounds = maxRounds - 1
-            if maxRounds == 0 {
-                // display leaderboard
-            } else {
-                moveToNextRound(currScore)
-            }
+            moveToNextRound()
             retakePressed(self)
         }
     }
 
     // update ui
-    func moveToNextRound(_ lastScore: Int) { // lastScore = score earned in previous round
+    func moveToNextRound() { // lastScore = score earned in previous round
         
-        totalScore = totalScore + lastScore
+        let submissionColor = submission.averageColor! // average color of user's submission
+        let tempColor = guessColor.components
+        currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
+        currScore = currScore + 5 * (count)
+        
+        let alert = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        // display confirmation msg, disable submit button
+        totalScore = totalScore + currScore
         // upload totalScore
         //extract every other player score
         // send as parameters into moveToLeaderboard func
@@ -358,10 +357,10 @@ class gameScreenViewController: UIViewController {
         currRound += 1
         roundLabel.text = "Round: \(currRound)"
         count = totalTime
-        let color = scoreManager.generatergb()
-        let r = CGFloat(Double(color.0) / 255.0)
-        let g = CGFloat(Double(color.1) / 255.0)
-        let b = CGFloat(Double(color.2) / 255.0)
+        let newColor = scoreManager.generatergb()
+        let r = CGFloat(Double(newColor.0) / 255.0)
+        let g = CGFloat(Double(newColor.1) / 255.0)
+        let b = CGFloat(Double(newColor.2) / 255.0)
         guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
         goalColorImageView.backgroundColor = guessColor
     }
