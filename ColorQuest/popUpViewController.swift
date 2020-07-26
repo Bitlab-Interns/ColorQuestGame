@@ -33,7 +33,8 @@ class popUpViewController: UIViewController {
         tableView.register(UINib(nibName: "LeadCell", bundle: nil), forCellReuseIdentifier: "lcell" )
         
         
-        
+        retrieveData()
+        tableView.reloadData()
         
         
         
@@ -66,6 +67,7 @@ class popUpViewController: UIViewController {
             }
             
             self.playerList.sorted() { $0.score > $1.score }
+            self.tableView.reloadData()
         }) { (error) in
             print("error:(error.localizedDescription)")
         }
@@ -87,7 +89,8 @@ extension popUpViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "lcell", for: indexPath) as! LeadCell
         
-        
+        cell.name.text = playerList[indexPath.row].user
+        cell.score.text = playerList[indexPath.row].score
         
         
         return cell
