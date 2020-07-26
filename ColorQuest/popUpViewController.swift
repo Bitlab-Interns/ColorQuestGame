@@ -30,6 +30,8 @@ class popUpViewController: UIViewController {
         ref = Database.database().reference()
 
         
+        tableView.register(UINib(nibName: "LeaderboardTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell" )
+        
         ref.child("Games/\(gameID)/Participants").observeSingleEvent(of: .value, with: { (snapshot) in
             for users in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = users.value as? NSDictionary else {
@@ -39,6 +41,8 @@ class popUpViewController: UIViewController {
                 let score = value["score"] as! String
 //                self.leaderboard[name] = score
             
+                
+                
             }
         }) { (error) in
             print("error:(error.localizedDescription)")
@@ -65,11 +69,13 @@ extension popUpViewController: UITableViewDelegate {
 
 extension popUpViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! LeaderboardTableViewCell
+        
+        return cell
     }
     
     
