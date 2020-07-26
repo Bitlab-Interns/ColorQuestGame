@@ -21,7 +21,8 @@
 		89AD2B3724BC22A4008B4696 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89AD2B3624BC22A4008B4696 /* GoogleService-Info.plist */; };
 		89B5482924CBF6E100855802 /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B5482824CBF6E100855802 /* popUpViewController.swift */; };
 		89B5482B24CBFD7700855802 /* playerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B5482A24CBFD7700855802 /* playerCell.swift */; };
-		89B5483524CD00C500855802 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B5483324CD00C500855802 /* LeaderboardTableViewCell.swift */; };
+		89B5483824CD042100855802 /* LeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B5483624CD042100855802 /* LeadCell.swift */; };
+		89B5483924CD042100855802 /* LeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B5483724CD042100855802 /* LeadCell.xib */; };
 		97C1322FD6C96B0049F0493C /* Pods_ColorQuest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9107E6DE0BC3704260890695 /* Pods_ColorQuest.framework */; };
 		ECC1B59A24C2E932000C050E /* scoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1B59924C2E932000C050E /* scoreManager.swift */; };
 /* End PBXBuildFile section */
@@ -45,8 +46,8 @@
 		89AD2B3624BC22A4008B4696 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89B5482824CBF6E100855802 /* popUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
 		89B5482A24CBFD7700855802 /* playerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerCell.swift; sourceTree = "<group>"; };
-		89B5483324CD00C500855802 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LeaderboardTableViewCell.swift; path = /Users/michaelpeng/Desktop/ColorQuest/ColorQuest/LeaderboardTableViewCell.swift; sourceTree = "<absolute>"; };
-		89B5483424CD00C500855802 /* LeaderboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LeaderboardTableViewCell.xib; path = /Users/michaelpeng/Desktop/ColorQuest/ColorQuest/LeaderboardTableViewCell.xib; sourceTree = "<absolute>"; };
+		89B5483624CD042100855802 /* LeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadCell.swift; sourceTree = "<group>"; };
+		89B5483724CD042100855802 /* LeadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeadCell.xib; sourceTree = "<group>"; };
 		9107E6DE0BC3704260890695 /* Pods_ColorQuest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColorQuest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC1B59924C2E932000C050E /* scoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,12 +103,12 @@
 			isa = PBXGroup;
 			children = (
 				89AD2B1F24BC225E008B4696 /* AppDelegate.swift */,
-				89B5483324CD00C500855802 /* LeaderboardTableViewCell.swift */,
-				89B5483424CD00C500855802 /* LeaderboardTableViewCell.xib */,
 				89AD2B2124BC225E008B4696 /* SceneDelegate.swift */,
 				89AD2B2324BC225E008B4696 /* ViewController.swift */,
 				89AD2B2524BC225E008B4696 /* Main.storyboard */,
 				89B5482824CBF6E100855802 /* popUpViewController.swift */,
+				89B5483624CD042100855802 /* LeadCell.swift */,
+				89B5483724CD042100855802 /* LeadCell.xib */,
 				89B5482A24CBFD7700855802 /* playerCell.swift */,
 				895F577A24C95B7F000EC02F /* HomeViewController.swift */,
 				897E514C24C5539E006C9131 /* SignupLoginViewController.swift */,
@@ -185,6 +186,7 @@
 			files = (
 				89AD2B3724BC22A4008B4696 /* GoogleService-Info.plist in Resources */,
 				89AD2B2F24BC225F008B4696 /* LaunchScreen.storyboard in Resources */,
+				89B5483924CD042100855802 /* LeadCell.xib in Resources */,
 				89AD2B2C24BC225F008B4696 /* Assets.xcassets in Resources */,
 				89AD2B2724BC225E008B4696 /* Main.storyboard in Resources */,
 			);
@@ -244,11 +246,11 @@
 				89AD2B2A24BC225E008B4696 /* ColorQuest.xcdatamodeld in Sources */,
 				899E655F24BE91E0003E8D3D /* cameraViewController.swift in Sources */,
 				89AD2B2424BC225E008B4696 /* ViewController.swift in Sources */,
+				89B5483824CD042100855802 /* LeadCell.swift in Sources */,
 				ECC1B59A24C2E932000C050E /* scoreManager.swift in Sources */,
 				895F577B24C95B7F000EC02F /* HomeViewController.swift in Sources */,
 				899E655D24BE91D5003E8D3D /* gameScreenViewController.swift in Sources */,
 				89AD2B2024BC225E008B4696 /* AppDelegate.swift in Sources */,
-				89B5483524CD00C500855802 /* LeaderboardTableViewCell.swift in Sources */,
 				89AD2B2224BC225E008B4696 /* SceneDelegate.swift in Sources */,
 				89B5482B24CBFD7700855802 /* playerCell.swift in Sources */,
 			);
