@@ -24,8 +24,8 @@ class popUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         
         ref = Database.database().reference()
 
@@ -55,6 +55,27 @@ class popUpViewController: UIViewController {
     
 
 }
+
+extension popUpViewController: UITableViewDelegate {
+ 
+    func  tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("yote")
+    }
+}
+
+extension popUpViewController:UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
+    
+}
+
 
 //extension popUpViewController: UITableViewDelegate {
 //func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
