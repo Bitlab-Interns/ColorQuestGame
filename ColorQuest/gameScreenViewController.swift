@@ -347,7 +347,7 @@ class gameScreenViewController: UIViewController {
         if currRound == maxRounds {
             
             // display leaderboard
-            let alert = UIAlertController(title: "Game Over!", message: "", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Game Over!", message: "Total Score: \(totalScore)", preferredStyle: UIAlertController.Style.alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
