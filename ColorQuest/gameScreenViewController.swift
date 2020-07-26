@@ -53,7 +53,7 @@ class gameScreenViewController: UIViewController {
     @IBOutlet weak var goalColorImageView: UIImageView!
     
     
-    var maxRounds = 5
+    var maxRounds = 3
     let scoreManager = ScoreManager()
     var guessColor: UIColor!
     var currRound = 1
@@ -344,21 +344,30 @@ class gameScreenViewController: UIViewController {
 //                print(error.localizedDessdfcription)
 //        }
         
+        if currRound == maxRounds {
+            
+            // display leaderboard
+            let alert = UIAlertController(title: "Game Over!", message: "", preferredStyle: UIAlertController.Style.alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
         
-
-        // move to leaderboard
-        currScore = 0
-        scoreLabel.text = String(totalScore)
-        currRound += 1
-        roundLabel.text = "Round: \(currRound)"
-        count = totalTime
-        let newColor = scoreManager.generatergb()
-        let r = CGFloat(Double(newColor.0) / 255.0)
-        let g = CGFloat(Double(newColor.1) / 255.0)
-        let b = CGFloat(Double(newColor.2) / 255.0)
-        guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
-        goalColorImageView.backgroundColor = guessColor
-        submission = nil
+            // move to leaderboard
+            currScore = 0
+            scoreLabel.text = String(totalScore)
+            currRound += 1
+            roundLabel.text = "Round: \(currRound)"
+            count = totalTime
+            let newColor = scoreManager.generatergb()
+            let r = CGFloat(Double(newColor.0) / 255.0)
+            let g = CGFloat(Double(newColor.1) / 255.0)
+            let b = CGFloat(Double(newColor.2) / 255.0)
+            guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+            goalColorImageView.backgroundColor = guessColor
+            submission = nil
+        }
     }
     
     func moveToLeaderboard() {
