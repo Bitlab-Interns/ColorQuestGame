@@ -90,7 +90,7 @@ extension popUpViewController:UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "lcell", for: indexPath) as! LeadCell
         
         cell.name.text = playerList[indexPath.row].user
-        cell.score.text = playerList[indexPath.row].score
+        cell.score.text = String(playerList[indexPath.row].score)
         
         
         return cell
