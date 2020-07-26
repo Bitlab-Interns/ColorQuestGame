@@ -66,7 +66,7 @@ class popUpViewController: UIViewController {
                 
             }
             
-            self.playerList.sorted() { $0.score > $1.score }
+            self.playerList = self.playerList.sorted() { $0.score > $1.score }
             self.tableView.reloadData()
         }) { (error) in
             print("error:(error.localizedDescription)")
