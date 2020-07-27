@@ -43,8 +43,11 @@ class WaitingRoomViewController: UIViewController {
         ref.child("Games/\(gameID)/Misc").observe(.childChanged) { (snapshot) in
 
             let value = snapshot.value as? NSDictionary
+            if value!["gameStarted"] as! Bool {
+                self.performSegue(withIdentifier: "toGame", sender: self)
+            }
             // do segue to game view controller
-            self.performSegue(withIdentifier: "toGame", sender: self)
+            
             
         }
         
