@@ -34,7 +34,7 @@ class WaitingRoomViewController: UIViewController {
         }
         
         if isLeader! {
-            startButton.isHidden = true
+            startButton.isHidden = false
         }
         
         ref.child("Games/\(gameID)/Misc").observe(.childChanged) { (snapshot) in
