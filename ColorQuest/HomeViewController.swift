@@ -72,7 +72,7 @@ class HomeViewController: UIViewController {
                                     
                                     self.ref.child("Games").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!])
                                     
-                                    self.ref.child("Games/\(self.textField.text!)/Misc").updateChildValues(["gameStarted": false])
+                                    self.ref.child("Games/\(self.textField.text!)/gsChanged").updateChildValues(["gameStarted": false])
                                     
                                     self.gameID = self.textField.text!
                                     
