@@ -75,6 +75,8 @@ class gameScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        retakePressed(self)
+        
         ref = Database.database().reference()
         
         print("INSTIDE GAME SCREEN")
