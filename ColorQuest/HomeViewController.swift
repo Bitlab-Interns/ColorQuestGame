@@ -155,7 +155,7 @@ class HomeViewController: UIViewController {
                                             
                                             self.gameID = self.textField.text!
                                             
-                                            self.performSegue(withIdentifier: "toGame", sender: self)
+                                            self.performSegue(withIdentifier: "toWaiting", sender: self)
 //                                          self.ref.child("Games").child(self.textField.textyay!).updateChildValues(["ID" : self.textField.text!])
                                              
                                              return
