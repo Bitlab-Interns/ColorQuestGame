@@ -28,14 +28,15 @@ class WaitingRoomViewController: UIViewController {
           // Get user value
             let value = snapshot.value as? NSDictionary
             self.isLeader = value?["isLeader"] as! Bool
+            if self.isLeader! {
+                self.startButton.isHidden = false
+            }
 
             }) { (error) in
             print(error.localizedDescription)
         }
         
-        if isLeader! {
-            startButton.isHidden = false
-        }
+        
         
         ref.child("Games/\(gameID)/Misc").observe(.childChanged) { (snapshot) in
 
