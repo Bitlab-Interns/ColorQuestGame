@@ -14,7 +14,7 @@ class WaitingRoomViewController: UIViewController {
 
     @IBOutlet weak var startButton: UIButton!
     var ref: DatabaseReference!
-    var isLeader: Bool? = false
+    var isLeader = false
     var username : String = ""
     var gameID : String = ""
     
@@ -22,13 +22,15 @@ class WaitingRoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startButton.isHidden = true
+        
         ref = Database.database().reference()
         
         ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
             let value = snapshot.value as? NSDictionary
             self.isLeader = value?["isLeader"] as! Bool
-            if self.isLeader! {
+            if self.isLeader {
                 self.startButton.isHidden = false
             }
 
