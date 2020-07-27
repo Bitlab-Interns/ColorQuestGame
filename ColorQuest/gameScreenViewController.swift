@@ -24,7 +24,7 @@ import Firebase
 class gameScreenViewController: UIViewController {
     
     var ref: DatabaseReference!
-//    var username: String!
+    //    var username: String!
     var leaderboard: [String: String] = [:]
     
     @IBOutlet weak var gameImage: UIImageView!
@@ -70,37 +70,40 @@ class gameScreenViewController: UIViewController {
     
     
     var username : String = ""
-
+    
     var gameID : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
         
+        print("INSTIDE GAME SCREEN")
+        
         ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
-          // Get user value
+            // Get user value
             let value = snapshot.value as? NSDictionary
             self.isLeader = value?["isLeader"] as! Bool
-            self.ref.child("Games/\(self.gameID)").observeSingleEvent(of: .value, with: { (snapshot2) in
-              // Get user value
-                if self.isLeader {
-                    let color = self.scoreManager.generatergb()
-                    let r = CGFloat(Double(color.0) / 255.0)
-                    let g = CGFloat(Double(color.1) / 255.0)
-                    let b = CGFloat(Double(color.2) / 255.0)
-                    self.ref.child("Games/\(self.gameID)").updateChildValues(["guessColor":(r, g, b)])
-                }
-                let value2 = snapshot2.value as? NSDictionary
-                let tempTuple = value2?["guessColor"] as! (CGFloat, CGFloat, CGFloat)
-                self.guessColor = UIColor(red: tempTuple.0, green: tempTuple.1, blue: tempTuple.2, alpha: 1)
-                self.goalColorImageView.backgroundColor = self.guessColor
-                var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+            
+            print("ISLEADER:\(self.isLeader)")
+            
+            if self.isLeader {
+                let color = self.scoreManager.generatergb()
+                let r = Float(Double(color.0) / 255.0)
+                let g = Float(Double(color.1) / 255.0)
+                let b = Float(Double(color.2) / 255.0)
+                
 
-                }) { (error2) in
-                print(error2.localizedDescription)
+                
+                self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
+                self.ref.child("Games/\(self.gameID)/Misc").updateChildValues(["LeaderFinished": true])
+                
             }
-
-            }) { (error) in
+            
+            
+            
+            
+            
+        }) { (error) in
             print(error.localizedDescription)
         }
         
@@ -130,23 +133,41 @@ class gameScreenViewController: UIViewController {
         zoomOutGestureRecognizer.addTarget(self, action: #selector(zoomOut))
         view.addGestureRecognizer(zoomOutGestureRecognizer)
         styleCaptureButton()
-    }
+        
+        
+        ref.child("Games/\(gameID)/Misc").observe(.childChanged) { (snapshot) in
+            self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
+                // Get user value
 
+                let value2 = snapshot2.value as? NSDictionary
+                let r = value2?["r"] as! CGFloat
+                let g = value2?["g"] as! CGFloat
+                let b = value2?["b"] as! CGFloat
+                self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+                self.goalColorImageView.backgroundColor = self.guessColor
+                var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+
+            }) { (error2) in
+                print(error2.localizedDescription)
+            }
+        }
+    }
+    
     @objc func update() {
         if(count > 0) {
             count = count - 1
             timeLabel.text = String(count)
         } else if count == 0 {
-//            if !imageIsNullOrNot(imageName: submission) {
-//                let color = submission.averageColor! // average color of user's submission
-//                let tempColor = guessColor.components
-//                var currScore = scoreManager.similarity(Float(color.0), Float(color.1), Float(color.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
-//                moveToNextRound(currScore)
-//            } else {
-//                moveToNextRound(0)
-//            }
+            //            if !imageIsNullOrNot(imageName: submission) {
+            //                let color = submission.averageColor! // average color of user's submission
+            //                let tempColor = guessColor.components
+            //                var currScore = scoreManager.similarity(Float(color.0), Float(color.1), Float(color.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
+            //                moveToNextRound(currScore)
+            //            } else {
+            //                moveToNextRound(0)
+            //            }
             moveToNextRound()
-
+            
         }
     }
     
@@ -316,9 +337,9 @@ class gameScreenViewController: UIViewController {
         cameraButton.isHidden = true
         submitButton.isHidden = false
     }
-
+    
     @IBAction func submitPhoto(_ sender: UIButton) {
-
+        
         if (submission == nil) { // if image null
             
             // alert
@@ -332,14 +353,14 @@ class gameScreenViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             let when = DispatchTimeInterval.seconds(count)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + when){
-              // your code with delay
-              alert.dismiss(animated: true, completion: nil)
+                // your code with delay
+                alert.dismiss(animated: true, completion: nil)
             }
             
             retakePressed(self)
         }
     }
-
+    
     // update ui
     func moveToNextRound() { // lastScore = score earned in previous round
         
@@ -359,15 +380,15 @@ class gameScreenViewController: UIViewController {
         // send as parameters into moveToLeaderboard func
         ref.child("Games/\(gameID)/Participants/\(username)").updateChildValues(["score":totalScore])
         // might have to add delay here to wait for everyone to update score
-//        ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user value
-//            let value = snapshot.value as? NSDictionary
-//            let score = value?["score"] as! String
-//
-//            // ...
-//            }) { (error) in
-//                print(error.localizedDessdfcription)
-//        }
+        //        ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
+        //            // Get user value
+        //            let value = snapshot.value as? NSDictionary
+        //            let score = value?["score"] as! String
+        //
+        //            // ...
+        //            }) { (error) in
+        //                print(error.localizedDessdfcription)
+        //        }
         
         if currRound == maxRounds {
             
@@ -378,7 +399,7 @@ class gameScreenViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             
         } else {
-        
+            
             // move to leaderboard
             currScore = 0
             scoreLabel.text = String(totalScore)
@@ -393,12 +414,12 @@ class gameScreenViewController: UIViewController {
                 ref.child("Games/\(gameID)").updateChildValues(["guessColor":(r, g, b)])
             }
             ref.child("Games/\(gameID)").observeSingleEvent(of: .value, with: { (snapshot) in
-              // Get user value
+                // Get user value
                 let value = snapshot.value as? NSDictionary
                 let tempTuple = value?["guessColor"] as! (CGFloat, CGFloat, CGFloat)
                 self.guessColor = UIColor(red: tempTuple.0, green: tempTuple.1, blue: tempTuple.2, alpha: 1)
-
-                }) { (error) in
+                
+            }) { (error) in
                 print(error.localizedDescription)
             }
             goalColorImageView.backgroundColor = guessColor
@@ -434,7 +455,7 @@ extension gameScreenViewController: AVCapturePhotoCaptureDelegate {
         if let imageData = photo.fileDataRepresentation() {
             self.image = UIImage(data: imageData)
             submission = UIImage(data: imageData)!
-//            performSegue(withIdentifier: "Preview_Segue", sender: nil)
+            //            performSegue(withIdentifier: "Preview_Segue", sender: nil)
             cropImage(image!, 0.5)
             croppedImage.image = croppedImage.image?.rotate(radians: 1.57)
             switchMode2()
@@ -469,17 +490,17 @@ extension UIImage {
     var averageColor: (CGFloat, CGFloat, CGFloat, CGFloat)? {
         guard let inputImage = CIImage(image: self) else { return nil }
         let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
-
+        
         guard let filter = CIFilter(name: "CIAreaAverage", parameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: extentVector]) else { return nil }
         guard let outputImage = filter.outputImage else { return nil }
-
+        
         var bitmap = [UInt8](repeating: 0, count: 4)
         let context = CIContext(options: [.workingColorSpace: kCFNull])
         context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
-
+        
         return (CGFloat(bitmap[0]), CGFloat(bitmap[1]), CGFloat(bitmap[2]), CGFloat(bitmap[3]))
     }
-
+    
 }
 
 extension UIColor {

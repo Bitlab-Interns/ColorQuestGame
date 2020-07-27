@@ -59,6 +59,7 @@ class WaitingRoomViewController: UIViewController {
     @IBAction func startPressed(_ sender: UIButton) {
         
         ref.child("Games/\(gameID)/Misc").updateChildValues(["gameStarted": true])
+        ref.child("Games/\(gameID)/Misc").updateChildValues(["LeaderFinished": false])
         
     }
     
