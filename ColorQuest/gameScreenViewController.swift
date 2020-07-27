@@ -104,6 +104,23 @@ class gameScreenViewController: UIViewController {
                 self.goalColorImageView.backgroundColor = self.guessColor
                 
             }
+            else {
+                
+                self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
+                    // Get user value
+
+                    let value2 = snapshot2.value as? NSDictionary
+                    let r = value2?["r"] as! CGFloat
+                    let g = value2?["g"] as! CGFloat
+                    let b = value2?["b"] as! CGFloat
+                    self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+                    print("GS: \(self.guessColor)" )
+                    self.goalColorImageView.backgroundColor = self.guessColor
+                    
+                }) { (error2) in
+                    print(error2.localizedDescription)
+                }
+            }
             
             
             
