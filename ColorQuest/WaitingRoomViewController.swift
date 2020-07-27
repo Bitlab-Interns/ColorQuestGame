@@ -62,6 +62,7 @@ class WaitingRoomViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toGame") {
+            print("TO GAME")
             let secondVC = segue.destination as! gameScreenViewController
             secondVC.username = username
             secondVC.gameID = gameID
