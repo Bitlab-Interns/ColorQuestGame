@@ -37,7 +37,7 @@ class WaitingRoomViewController: UIViewController {
             startButton.isHidden = true
         }
         
-        ref.child("Games/\(gameID)").observe(.childAdded) { (snapshot) in
+        ref.child("Games/\(gameID)/Misc").observe(.childChanged) { (snapshot) in
 
             let value = snapshot.value as? NSDictionary
             // do segue to game view controller
@@ -55,7 +55,7 @@ class WaitingRoomViewController: UIViewController {
     
     @IBAction func startPressed(_ sender: UIButton) {
         
-        ref.child("Games/\(gameID)").updateChildValues(["gameStarted": true])
+        ref.child("Games/\(gameID)/Misc").updateChildValues(["gameStarted": true])
         
     }
     
