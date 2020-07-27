@@ -99,6 +99,10 @@ class gameScreenViewController: UIViewController {
                 self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
                 self.ref.child("Games/\(self.gameID)/lChanged").updateChildValues(["LeaderFinished": true])
                 
+                self.guessColor = UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1)
+                print("GS: \(self.guessColor)" )
+                self.goalColorImageView.backgroundColor = self.guessColor
+                
             }
             
             
@@ -138,6 +142,8 @@ class gameScreenViewController: UIViewController {
         
         
         ref.child("Games/\(gameID)/lChanged").observe(.childChanged) { (snapshot) in
+            
+            print("YOTE")
             self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
                 // Get user value
 
@@ -146,6 +152,7 @@ class gameScreenViewController: UIViewController {
                 let g = value2?["g"] as! CGFloat
                 let b = value2?["b"] as! CGFloat
                 self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+                print("GS: \(self.guessColor)" )
                 self.goalColorImageView.backgroundColor = self.guessColor
                 
             }) { (error2) in
