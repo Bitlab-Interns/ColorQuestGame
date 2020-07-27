@@ -147,12 +147,13 @@ class gameScreenViewController: UIViewController {
                 let b = value2?["b"] as! CGFloat
                 self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
                 self.goalColorImageView.backgroundColor = self.guessColor
-                var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
-
+                
             }) { (error2) in
                 print(error2.localizedDescription)
             }
         }
+        var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+
     }
     
     @objc func update() {
