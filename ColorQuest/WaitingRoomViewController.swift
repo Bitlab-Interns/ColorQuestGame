@@ -40,12 +40,12 @@ class WaitingRoomViewController: UIViewController {
         
         
         
-        ref.child("Games/\(gameID)/Misc").observe(.childChanged) { (snapshot) in
+        ref.child("Games/\(gameID)/gsChanged").observe(.childChanged) { (snapshot) in
 
             let value = snapshot.value as? NSDictionary
-            if value!["gameStarted"] as! Bool {
+            
                 self.performSegue(withIdentifier: "toGame", sender: self)
-            }
+
             // do segue to game view controller
             
             
@@ -61,8 +61,8 @@ class WaitingRoomViewController: UIViewController {
     
     @IBAction func startPressed(_ sender: UIButton) {
         
-        ref.child("Games/\(gameID)/Misc").updateChildValues(["gameStarted": true])
-        ref.child("Games/\(gameID)/Misc").updateChildValues(["LeaderFinished": false])
+        ref.child("Games/\(gameID)/gsChanged").updateChildValues(["gameStarted": true])
+        ref.child("Games/\(gameID)/lChanged").updateChildValues(["LeaderFinished": false])
         
     }
     

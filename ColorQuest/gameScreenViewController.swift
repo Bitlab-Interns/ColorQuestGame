@@ -97,7 +97,7 @@ class gameScreenViewController: UIViewController {
 
                 
                 self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
-                self.ref.child("Games/\(self.gameID)/Misc").updateChildValues(["LeaderFinished": true])
+                self.ref.child("Games/\(self.gameID)/lchanged").updateChildValues(["LeaderFinished": true])
                 
             }
             
@@ -137,7 +137,7 @@ class gameScreenViewController: UIViewController {
         styleCaptureButton()
         
         
-        ref.child("Games/\(gameID)/Misc").observe(.childChanged) { (snapshot) in
+        ref.child("Games/\(gameID)/lchanged").observe(.childChanged) { (snapshot) in
             self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
                 // Get user value
 
