@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y9a-fm-Ze2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y9a-fm-Ze2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -237,6 +237,40 @@
             </objects>
             <point key="canvasLocation" x="1863.7681159420292" y="16.741071428571427"/>
         </scene>
+        <!--Waiting Room View Controller-->
+        <scene sceneID="qD4-2b-8FA">
+            <objects>
+                <viewController title="Waiting Room View Controller" modalPresentationStyle="fullScreen" id="GZY-HH-xfw" customClass="WaitingRoomViewController" customModule="ColorQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hiW-d0-Txx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ra8-1L-vrb">
+                                <rect key="frame" x="116" y="424" width="182" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Start Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startPressed:" destination="GZY-HH-xfw" eventType="touchUpInside" id="Wyx-re-0vH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="YIb-Nf-K7J"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XYo-t4-Ujl"/>
+                    <connections>
+                        <outlet property="startButton" destination="ra8-1L-vrb" id="4iK-TT-1Kz"/>
+                        <segue destination="Pf4-6G-NwN" kind="show" identifier="toGame" id="oYI-p3-gf1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zwf-9r-kxq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2201" y="-616"/>
+        </scene>
         <!--Camera View Controller-->
         <scene sceneID="2dg-1m-9XL">
             <objects>
@@ -455,7 +489,7 @@
                     <connections>
                         <outlet property="createButton" destination="lRN-d7-Swf" id="3MB-cl-onb"/>
                         <outlet property="joinButton" destination="sO4-ph-zCp" id="7DV-WW-S1u"/>
-                        <segue destination="Pf4-6G-NwN" kind="show" identifier="toGame" id="Iud-Ok-t86"/>
+                        <segue destination="GZY-HH-xfw" kind="show" identifier="toWaiting" id="TqI-m8-AwJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5a-oz-jOW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
