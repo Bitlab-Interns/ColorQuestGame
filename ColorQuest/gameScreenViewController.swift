@@ -96,7 +96,9 @@ class gameScreenViewController: UIViewController {
                 let r = Float(Double(color.0) / 255.0)
                 let g = Float(Double(color.1) / 255.0)
                 let b = Float(Double(color.2) / 255.0)
-                
+                self.guessColor = UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1)
+                print("GS: \(self.guessColor)" )
+                self.goalColorImageView.backgroundColor = self.guessColor
 
                 
                 self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
@@ -155,7 +157,7 @@ class gameScreenViewController: UIViewController {
         ref.child("Games/\(gameID)/lChanged").observe(.childChanged) { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
-            if value?["LeaderFinished"] as! Bool {
+            if value?["LeaderFinished"] != nil && value?["LeaderFinished"] as! Bool {
             
             print("YOTE")
             self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
@@ -475,7 +477,7 @@ class gameScreenViewController: UIViewController {
                 ref.child("Games/\(gameID)/lChanged").observe(.childChanged) { (snapshot) in
                     
                     let value = snapshot.value as? NSDictionary
-                    if value?["LeaderFinished"] as! Bool {
+                    if value?["LeaderFinished"] != nil && value?["LeaderFinished"] as! Bool {
                     
                     print("YOTE")
                     self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
