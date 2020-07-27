@@ -62,7 +62,7 @@ class gameScreenViewController: UIViewController {
     var submission: UIImage? = nil
     var totalScore = 0
     var currScore = 0 // score earned in a round
-    var isLeader: Bool? = false
+    var isLeader = false
     
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -81,30 +81,34 @@ class gameScreenViewController: UIViewController {
           // Get user value
             let value = snapshot.value as? NSDictionary
             self.isLeader = value?["isLeader"] as! Bool
+            self.ref.child("Games/\(self.gameID)").observeSingleEvent(of: .value, with: { (snapshot2) in
+              // Get user value
+                if self.isLeader {
+                    let color = self.scoreManager.generatergb()
+                    let r = CGFloat(Double(color.0) / 255.0)
+                    let g = CGFloat(Double(color.1) / 255.0)
+                    let b = CGFloat(Double(color.2) / 255.0)
+                    self.ref.child("Games/\(self.gameID)").updateChildValues(["guessColor":(r, g, b)])
+                }
+                let value2 = snapshot2.value as? NSDictionary
+                let tempTuple = value2?["guessColor"] as! (CGFloat, CGFloat, CGFloat)
+                self.guessColor = UIColor(red: tempTuple.0, green: tempTuple.1, blue: tempTuple.2, alpha: 1)
+                self.goalColorImageView.backgroundColor = self.guessColor
+                var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+
+                }) { (error2) in
+                print(error2.localizedDescription)
+            }
 
             }) { (error) in
             print(error.localizedDescription)
         }
         
-        var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
         
-        if isLeader! {
-            let color = scoreManager.generatergb()
-            let r = CGFloat(Double(color.0) / 255.0)
-            let g = CGFloat(Double(color.1) / 255.0)
-            let b = CGFloat(Double(color.2) / 255.0)
-            ref.child("Games/\(gameID)").updateChildValues(["guessColor":(r, g, b)])
-        }
-        ref.child("Games/\(gameID)").observeSingleEvent(of: .value, with: { (snapshot) in
-          // Get user value
-            let value = snapshot.value as? NSDictionary
-            let tempTuple = value?["guessColor"] as! (CGFloat, CGFloat, CGFloat)
-            self.guessColor = UIColor(red: tempTuple.0, green: tempTuple.1, blue: tempTuple.2, alpha: 1)
-
-            }) { (error) in
-            print(error.localizedDescription)
-        }
-        goalColorImageView.backgroundColor = guessColor
+        
+        
+        
+        
         
         setupCaptureSession()
         setupDevice()
