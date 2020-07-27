@@ -71,7 +71,7 @@ class HomeViewController: UIViewController {
                                     
                                     self.gameID = self.textField.text!
                                     
-                                    self.performSegue(withIdentifier: "toGame", sender: self)
+                                    self.performSegue(withIdentifier: "toWaiting", sender: self)
 //                                    self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0, "numVoted" : 0])
                                     
             //                        self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").child("Friday").updateChildValues(["Friday" : 0])
