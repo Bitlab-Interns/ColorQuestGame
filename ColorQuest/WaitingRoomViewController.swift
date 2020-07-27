@@ -13,18 +13,34 @@ import AVFoundation
 class WaitingRoomViewController: UIViewController {
 
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var playersLabel: UILabel!
     var ref: DatabaseReference!
     var isLeader = false
     var username : String = ""
     var gameID : String = ""
+    var numOfPlayers : Int = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        playersLabel.text = "Number of Players: 0"
+        
         startButton.isHidden = true
         
         ref = Database.database().reference()
+        
+        ref.child("Games/\(gameID)/Participants").observe(.childAdded) { (snapshot) in
+
+            let value = snapshot.value as? NSDictionary
+            
+            self.numOfPlayers += 1
+            self.playersLabel.text = "Players Joined: \(self.numOfPlayers)"
+
+            // do segue to game view controller
+            
+            
+        }
         
         ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
@@ -50,6 +66,8 @@ class WaitingRoomViewController: UIViewController {
             
             
         }
+        
+        
         
 //        commentsRef.observe(.childAdded, with: { (snapshot) -> Void in
 //          self.comments.append(snapshot)

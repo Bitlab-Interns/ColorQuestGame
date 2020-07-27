@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y9a-fm-Ze2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y9a-fm-Ze2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -265,19 +265,33 @@
                                     <action selector="startPressed:" destination="GZY-HH-xfw" eventType="touchUpInside" id="Wyx-re-0vH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Players Joined: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GW-h4-rRy">
+                                <rect key="frame" x="97" y="247" width="220.5" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="QQp-4b-eqC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9GW-h4-rRy" firstAttribute="centerX" secondItem="hiW-d0-Txx" secondAttribute="centerX" id="cJF-1B-mSi"/>
+                            <constraint firstItem="9GW-h4-rRy" firstAttribute="top" secondItem="YIb-Nf-K7J" secondAttribute="top" constant="203" id="jU6-iv-XXL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YIb-Nf-K7J"/>
                     </view>
                     <navigationItem key="navigationItem" id="XYo-t4-Ujl"/>
                     <connections>
+                        <outlet property="playersLabel" destination="9GW-h4-rRy" id="qwk-rP-GIb"/>
                         <outlet property="startButton" destination="ra8-1L-vrb" id="4iK-TT-1Kz"/>
                         <segue destination="Pf4-6G-NwN" kind="show" identifier="toGame" id="oYI-p3-gf1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zwf-9r-kxq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="-616"/>
+            <point key="canvasLocation" x="2198.5507246376815" y="-616.07142857142856"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="2dg-1m-9XL">
