@@ -27,6 +27,9 @@ class gameScreenViewController: UIViewController {
     //    var username: String!
     var leaderboard: [String: String] = [:]
     
+    var startCounter = 5
+    
+    @IBOutlet weak var startTimer: UILabel!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var croppedImage: UIImageView!
@@ -97,29 +100,21 @@ class gameScreenViewController: UIViewController {
 
                 
                 self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
-                self.ref.child("Games/\(self.gameID)/lChanged").updateChildValues(["LeaderFinished": true])
+//
+//
+//                self.guessColor = UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1)
+//                print("GS: \(self.guessColor)" )
+//                self.goalColorImageView.backgroundColor = self.guessColor
                 
-                self.guessColor = UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1)
-                print("GS: \(self.guessColor)" )
-                self.goalColorImageView.backgroundColor = self.guessColor
+                
+                var tempTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.tempUpdate), userInfo: nil, repeats: true)
+                
                 
             }
             else {
                 
-                self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
-                    // Get user value
-
-                    let value2 = snapshot2.value as? NSDictionary
-                    let r = value2?["r"] as! CGFloat
-                    let g = value2?["g"] as! CGFloat
-                    let b = value2?["b"] as! CGFloat
-                    self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
-                    print("GS: \(self.guessColor)" )
-                    self.goalColorImageView.backgroundColor = self.guessColor
-                    
-                }) { (error2) in
-                    print(error2.localizedDescription)
-                }
+                
+//                self.ref.child("Games/\(self.gameID)/lChanged").updateChildValues(["LeaderFinished": true])
             }
             
             
@@ -194,6 +189,26 @@ class gameScreenViewController: UIViewController {
             //                moveToNextRound(0)
             //            }
             moveToNextRound()
+            
+        }
+    }
+    
+    @objc func tempUpdate() {
+        if(startCounter > 0) {
+            startCounter = startCounter - 1
+            startTimer.text = String(startCounter)
+        } else if startCounter == 0 {
+            //            if !imageIsNullOrNot(imageName: submission) {
+            //                let color = submission.averageColor! // average color of user's submission
+            //                let tempColor = guessColor.components
+            //                var currScore = scoreManager.similarity(Float(color.0), Float(color.1), Float(color.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
+            //                moveToNextRound(currScore)
+            //            } else {
+            //                moveToNextRound(0)
+            //            }
+            
+                            self.ref.child("Games/\(self.gameID)/lChanged").updateChildValues(["LeaderFinished": true])
+            
             
         }
     }

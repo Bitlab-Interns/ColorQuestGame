@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y9a-fm-Ze2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y9a-fm-Ze2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -206,6 +206,13 @@
                                     <action selector="submitPhoto:" destination="Pf4-6G-NwN" eventType="touchUpInside" id="VRE-r0-qI7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4M9-M0-Aei">
+                                <rect key="frame" x="171" y="413" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -228,6 +235,7 @@
                         <outlet property="retakeButton" destination="AFO-Ct-AcZ" id="m8d-Fb-gDf"/>
                         <outlet property="roundLabel" destination="kpg-Os-ZRf" id="ECL-CI-JYn"/>
                         <outlet property="scoreLabel" destination="0bZ-D8-rVf" id="Lhx-Vy-i0G"/>
+                        <outlet property="startTimer" destination="4M9-M0-Aei" id="iyl-Gm-OPb"/>
                         <outlet property="submitButton" destination="wlN-Uj-B9X" id="07y-Fh-d9t"/>
                         <outlet property="timeLabel" destination="7Yi-NB-Dyg" id="TJi-JG-WFr"/>
                         <segue destination="ikS-QI-Kax" kind="presentation" identifier="Preview_Segue" animates="NO" id="zil-Sm-ogI"/>
