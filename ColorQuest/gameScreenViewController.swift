@@ -385,7 +385,7 @@ class gameScreenViewController: UIViewController {
             currRound += 1
             roundLabel.text = "Round: \(currRound)"
             count = totalTime
-            if isLeader! {
+            if isLeader {
                 let newColor = scoreManager.generatergb()
                 let r = CGFloat(Double(newColor.0) / 255.0)
                 let g = CGFloat(Double(newColor.1) / 255.0)
