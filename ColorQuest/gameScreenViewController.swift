@@ -209,6 +209,23 @@ class gameScreenViewController: UIViewController {
             
             timer!.invalidate()
             
+            self.ref.child("Games/\(self.gameID)/lChanged").observeSingleEvent(of: .value, with: { (snapshot2) in
+                // Get user value
+                
+                let value2 = snapshot2.value as? NSDictionary
+                let t = value2?["LeaderFinished"] as! Bool
+
+                
+                self.ref.child("Games/\(self.gameID)/lChanged").updateChildValues(["LeaderFinished": !t])
+                
+                
+                
+            }) { (error2) in
+                print(error2.localizedDescription)
+            }
+            
+            
+            
         }
     }
     
@@ -502,20 +519,7 @@ class gameScreenViewController: UIViewController {
                 
                 
                 
-                    self.ref.child("Games/\(self.gameID)/lChanged").observeSingleEvent(of: .value, with: { (snapshot2) in
-                        // Get user value
-                        
-                        let value2 = snapshot2.value as? NSDictionary
-                        let t = value2?["LeaderFinished"] as! Bool
-
-                        
-                        self.ref.child("Games/\(self.gameID)/lChanged").updateChildValues(["LeaderFinished": !t])
-                        
-                        
-                        
-                    }) { (error2) in
-                        print(error2.localizedDescription)
-                    }
+                    
                 
                 
                 
