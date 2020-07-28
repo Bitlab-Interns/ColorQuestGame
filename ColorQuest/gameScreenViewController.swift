@@ -177,7 +177,7 @@ class gameScreenViewController: UIViewController {
                 self.goalColorImageView.backgroundColor = self.guessColor
                 
                 
-                moveToNextRound()
+                self.moveToNextRound()
                 
                 self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
                 
