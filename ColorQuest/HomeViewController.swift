@@ -28,6 +28,8 @@ class HomeViewController: UIViewController {
     
     var gameID : String = ""
     
+    var isLeader : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -77,6 +79,8 @@ class HomeViewController: UIViewController {
                                     self.gameID = self.textField.text!
                                     
                                     self.performSegue(withIdentifier: "toWaiting", sender: self)
+                                    
+                                    self.isLeader = true
 //                                    self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0, "numVoted" : 0])
                                     
             //                        self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").child("Friday").updateChildValues(["Friday" : 0])
@@ -162,6 +166,7 @@ class HomeViewController: UIViewController {
                                             
                                             self.gameID = self.textField.text!
                                             
+                                            self.isLeader = false
                                             self.performSegue(withIdentifier: "toWaiting", sender: self)
 //                                          self.ref.child("Games").child(self.textField.textyay!).updateChildValues(["ID" : self.textField.text!])
                                              
@@ -227,6 +232,7 @@ class HomeViewController: UIViewController {
             let secondVC = segue.destination as! WaitingRoomViewController
             secondVC.username = username
             secondVC.gameID = gameID
+            secondVC.isLeader = isLeader
         }
     }
     /*

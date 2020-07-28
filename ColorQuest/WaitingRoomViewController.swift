@@ -42,17 +42,17 @@ class WaitingRoomViewController: UIViewController {
             
         }
         
-        ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
+//        ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
-            let value = snapshot.value as? NSDictionary
-            self.isLeader = value?["isLeader"] as! Bool
-            if self.isLeader {
-                self.startButton.isHidden = false
+//            let value = snapshot.value as? NSDictionary
+//            self.isLeader = value?["isLeader"] as! Bool
+            if isLeader {
+                startButton.isHidden = false
             }
 
-            }) { (error) in
-            print(error.localizedDescription)
-        }
+//            }) { (error) in
+//            print(error.localizedDescription)
+//        }
         
         
         
@@ -92,6 +92,7 @@ class WaitingRoomViewController: UIViewController {
             let secondVC = segue.destination as! gameScreenViewController
             secondVC.username = username
             secondVC.gameID = gameID
+            secondVC.isLeader = isLeader
             
         }
     }

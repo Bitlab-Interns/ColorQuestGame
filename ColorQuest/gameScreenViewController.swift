@@ -89,12 +89,12 @@ class gameScreenViewController: UIViewController {
         
         print("INSTIDE GAME SCREEN")
         
-        ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
+//        ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let value = snapshot.value as? NSDictionary
-            self.isLeader = value?["isLeader"] as! Bool
+//            let value = snapshot.value as? NSDictionary
+//            self.isLeader = value?["isLeader"] as! Bool
             
-            print("ISLEADER:\(self.isLeader)")
+//            print("ISLEADER:\(self.isLeader)")
             
             if self.isLeader {
                 let color = self.scoreManager.generatergb()
@@ -128,9 +128,9 @@ class gameScreenViewController: UIViewController {
             
             
             
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
         
         
         
@@ -513,6 +513,8 @@ class gameScreenViewController: UIViewController {
 //                    }
 //                    }
 //                }
+                
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
             }
 //            if isLeader {
 //                let newColor = scoreManager.generatergb()
