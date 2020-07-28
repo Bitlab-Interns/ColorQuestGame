@@ -176,6 +176,9 @@ class gameScreenViewController: UIViewController {
                 print("GS: \(self.guessColor)" )
                 self.goalColorImageView.backgroundColor = self.guessColor
                 
+                
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+                
             }) { (error2) in
                 print(error2.localizedDescription)
             }
@@ -470,7 +473,7 @@ class gameScreenViewController: UIViewController {
             roundLabel.text = "Round: \(currRound)"
             count = totalTime
             
-            if self.isLeader {
+            if isLeader {
                 let color = self.scoreManager.generatergb()
                 let r = Float(Double(color.0) / 255.0)
                 let g = Float(Double(color.1) / 255.0)
@@ -489,7 +492,7 @@ class gameScreenViewController: UIViewController {
             //                self.goalColorImageView.backgroundColor = self.guessColor
                             
                             
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+                
             } else {
 //                ref.child("Games/\(gameID)/lChanged").observe(.childChanged) { (snapshot) in
 //
@@ -514,7 +517,7 @@ class gameScreenViewController: UIViewController {
 //                    }
 //                }
                 
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+                
             }
 //            if isLeader {
 //                let newColor = scoreManager.generatergb()
