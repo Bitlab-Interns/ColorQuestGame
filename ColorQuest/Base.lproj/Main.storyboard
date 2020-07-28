@@ -253,12 +253,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ra8-1L-vrb">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ra8-1L-vrb">
                                 <rect key="frame" x="117" y="424" width="180" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="hRg-9m-4fc"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Start Game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -281,7 +279,6 @@
                         <constraints>
                             <constraint firstItem="9GW-h4-rRy" firstAttribute="centerX" secondItem="hiW-d0-Txx" secondAttribute="centerX" id="cJF-1B-mSi"/>
                             <constraint firstItem="9GW-h4-rRy" firstAttribute="top" secondItem="YIb-Nf-K7J" secondAttribute="top" constant="203" id="jU6-iv-XXL"/>
-                            <constraint firstItem="ra8-1L-vrb" firstAttribute="centerX" secondItem="hiW-d0-Txx" secondAttribute="centerX" id="zum-eo-SJS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YIb-Nf-K7J"/>
                     </view>
