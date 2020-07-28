@@ -77,10 +77,11 @@ class HomeViewController: UIViewController {
                                     self.ref.child("Games/\(self.textField.text!)/gsChanged").updateChildValues(["gameStarted": false])
                                     
                                     self.gameID = self.textField.text!
+                                    self.isLeader = true
                                     
                                     self.performSegue(withIdentifier: "toWaiting", sender: self)
                                     
-                                    self.isLeader = true
+                                    
 //                                    self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").updateChildValues([ "monday" : 0, "tuesday" : 0, "wednesday" : 0, "thursday" : 0, "friday" : 0, "numVoted" : 0])
                                     
             //                        self.ref.child("Classrooms").child(self.textField.text!).child("Calendar").child("Friday").updateChildValues(["Friday" : 0])
