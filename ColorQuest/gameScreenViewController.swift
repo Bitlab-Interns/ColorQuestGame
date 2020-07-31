@@ -165,31 +165,32 @@ class gameScreenViewController: UIViewController {
             //            if value?["LeaderFinished"] != nil && value?["LeaderFinished"] as! Bool {
             
             //            print("YOTE")
-            self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
+//            self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
                 // Get user value
                 
-                let value2 = snapshot2.value as? NSDictionary
-                let r = value2?["r"] as! CGFloat
-                let g = value2?["g"] as! CGFloat
-                let b = value2?["b"] as! CGFloat
-                self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
-                print("GS: \(self.guessColor)" )
-                self.goalColorImageView.backgroundColor = self.guessColor
+//                let value2 = snapshot2.value as? NSDictionary
+//                let r = value2?["r"] as! CGFloat
+//                let g = value2?["g"] as! CGFloat
+//                let b = value2?["b"] as! CGFloat
+//                self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+//                print("GS: \(self.guessColor)" )
+//                self.goalColorImageView.backgroundColor = self.guessColor
                 
+                self.moveToNextRound()
                 self.moveToLeaderboard()
                 
                 
                 
-                self.moveToNextRound()
+//                self.moveToNextRound()
                 
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
-                
-                
+//                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
                 
                 
-            }) { (error2) in
-                print(error2.localizedDescription)
-            }
+                
+                
+//            }) { (error2) in
+//                print(error2.localizedDescription)
+//            }
             //            }
         }
         
@@ -228,6 +229,42 @@ class gameScreenViewController: UIViewController {
             }
             //            }
         }
+        
+        
+        ref.child("Games/\(gameID)/bChanged").observe(.childChanged) { (snapshot) in
+                    
+                    let value = snapshot.value as? NSDictionary
+                    //            if value?["LeaderFinished"] != nil && value?["LeaderFinished"] as! Bool {
+                    
+                    //            print("YOTE")
+                    self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
+                        // Get user value
+                        
+                        let value2 = snapshot2.value as? NSDictionary
+                        let r = value2?["r"] as! CGFloat
+                        let g = value2?["g"] as! CGFloat
+                        let b = value2?["b"] as! CGFloat
+                        self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+                        print("GS: \(self.guessColor)" )
+                        self.goalColorImageView.backgroundColor = self.guessColor
+                        
+        //                self.moveToLeaderboard()
+                        
+                        
+                        
+//                        self.moveToNextRound()
+                        
+                        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+                        
+                        
+                        
+                        
+                    }) { (error2) in
+                        print(error2.localizedDescription)
+                    }
+                    //            }
+                }
+        
         
     }
     

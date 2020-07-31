@@ -82,6 +82,7 @@ class WaitingRoomViewController: UIViewController {
         ref.child("Games/\(gameID)/gsChanged").updateChildValues(["gameStarted": true])
         ref.child("Games/\(gameID)/lChanged").updateChildValues(["LeaderFinished": false])
         ref.child("Games/\(gameID)/fChanged").updateChildValues(["LeaderFinished": false])
+        ref.child("Games/\(gameID)/bChanged").updateChildValues(["LeaderFinished": false])
 //        self.ref.child("Games/\(self.gameID)/sChanged").updateChildValues(["change": false])
         
     }

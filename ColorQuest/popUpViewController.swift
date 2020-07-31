@@ -45,6 +45,29 @@ class popUpViewController: UIViewController {
     }
     
     
+    @IBAction func nextRoundPressed(_ sender: Any) {
+        
+        
+        self.ref.child("Games/\(self.gameID)/bChanged").observeSingleEvent(of: .value, with: { (snapshot2) in
+            // Get user value
+            
+            let value2 = snapshot2.value as? NSDictionary
+            let t = value2?["LeaderFinished"] as! Bool
+
+            
+            self.ref.child("Games/\(self.gameID)/bChanged").updateChildValues(["LeaderFinished": !t])
+            
+            
+            
+        }) { (error2) in
+            print(error2.localizedDescription)
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+        
+        
+    }
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
