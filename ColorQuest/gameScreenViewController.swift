@@ -176,10 +176,16 @@ class gameScreenViewController: UIViewController {
                 print("GS: \(self.guessColor)" )
                 self.goalColorImageView.backgroundColor = self.guessColor
                 
+                self.moveToLeaderboard()
+                
+                
                 
                 self.moveToNextRound()
                 
                 self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+                
+                
+                
                 
             }) { (error2) in
                 print(error2.localizedDescription)
@@ -188,6 +194,40 @@ class gameScreenViewController: UIViewController {
         }
         
         
+        
+        ref.child("Games/\(gameID)/fChanged").observe(.childChanged) { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            //            if value?["LeaderFinished"] != nil && value?["LeaderFinished"] as! Bool {
+            
+            //            print("YOTE")
+            self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
+                // Get user value
+                
+                let value2 = snapshot2.value as? NSDictionary
+                let r = value2?["r"] as! CGFloat
+                let g = value2?["g"] as! CGFloat
+                let b = value2?["b"] as! CGFloat
+                self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+                print("GS: \(self.guessColor)" )
+                self.goalColorImageView.backgroundColor = self.guessColor
+                
+//                self.moveToLeaderboard()
+                
+                
+                
+//                self.moveToNextRound()
+                
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+                
+                
+                
+                
+            }) { (error2) in
+                print(error2.localizedDescription)
+            }
+            //            }
+        }
         
     }
     
@@ -245,14 +285,14 @@ class gameScreenViewController: UIViewController {
             
             tempTimer!.invalidate()
             
-            self.ref.child("Games/\(self.gameID)/lChanged").observeSingleEvent(of: .value, with: { (snapshot2) in
+            self.ref.child("Games/\(self.gameID)/fChanged").observeSingleEvent(of: .value, with: { (snapshot2) in
                 // Get user value
                 
                 let value2 = snapshot2.value as? NSDictionary
                 let t = value2?["LeaderFinished"] as! Bool
 
                 
-                self.ref.child("Games/\(self.gameID)/lChanged").updateChildValues(["LeaderFinished": !t])
+                self.ref.child("Games/\(self.gameID)/fChanged").updateChildValues(["LeaderFinished": !t])
                 
                 
                 
@@ -393,12 +433,6 @@ class gameScreenViewController: UIViewController {
         self.photoOutput?.capturePhoto(with: settings, delegate: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Preview_Segue" {
-            let previewViewController = segue.destination as! cameraViewController
-            previewViewController.image = self.image
-        }
-    }
     
     func cropImage(_ image: UIImage, _ portionOfImage: Double) {
         
@@ -588,14 +622,18 @@ class gameScreenViewController: UIViewController {
         // show scores
         // 5 second delay
         
+        performSegue(withIdentifier: "toLeader", sender: self)
+        
         
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "toHome") {
-            let secondVC = segue.destination as! HomeViewController
-            secondVC.username = username.text!
+        if (segue.identifier == "toLeader") {
+            let secondVC = segue.destination as! popUpViewController
+            secondVC.username = username
+            secondVC.gameID = gameID
+            secondVC.isLeader = isLeader
             
         }
     }

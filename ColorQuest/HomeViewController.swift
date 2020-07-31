@@ -68,7 +68,7 @@ class HomeViewController: UIViewController {
                                 else {
                                     self.ref.child("Players").child(self.username).updateChildValues(["CurrentGame" : self.textField.text!])
                                 
-                                    self.ref.child("Games").child(self.textField.text!).child("Participants").child(String(self.username)).updateChildValues(["username" : self.username, "isLeader" : true])
+                                    self.ref.child("Games").child(self.textField.text!).child("Participants").child(String(self.username)).updateChildValues(["username" : self.username, "isLeader" : true, "score": 0])
                                     
                                     
                                     
@@ -161,7 +161,7 @@ class HomeViewController: UIViewController {
                                              
                                              
                                              
-                                          self.ref.child("Games").child(self.textField.text!).child("Participants").child(String(self.username)).updateChildValues(["username" : self.username, "isLeader" : false])
+                                            self.ref.child("Games").child(self.textField.text!).child("Participants").child(String(self.username)).updateChildValues(["username" : self.username, "isLeader" : false, "score": 0])
                                             
                                             
                                             

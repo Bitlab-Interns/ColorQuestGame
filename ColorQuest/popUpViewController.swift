@@ -17,6 +17,8 @@ class popUpViewController: UIViewController {
     
     var username : String = ""
     
+    var isLeader : Bool = false
+    
     @IBOutlet weak var tableView: UITableView!
     
     var playerList: [playerCell] = [playerCell]()
