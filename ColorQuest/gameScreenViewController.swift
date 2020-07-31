@@ -592,6 +592,15 @@ class gameScreenViewController: UIViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toHome") {
+            let secondVC = segue.destination as! HomeViewController
+            secondVC.username = username.text!
+            
+        }
+    }
+    
+    
     /*
      // MARK: - Navigation
      

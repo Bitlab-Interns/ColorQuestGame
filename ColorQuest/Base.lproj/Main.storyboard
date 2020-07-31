@@ -250,6 +250,7 @@
                         <outlet property="submitButton" destination="wlN-Uj-B9X" id="07y-Fh-d9t"/>
                         <outlet property="timeLabel" destination="7Yi-NB-Dyg" id="TJi-JG-WFr"/>
                         <segue destination="ikS-QI-Kax" kind="presentation" identifier="Preview_Segue" animates="NO" id="zil-Sm-ogI"/>
+                        <segue destination="uoB-Im-FhU" kind="show" identifier="toLeader" id="e37-eY-X79"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjS-Zz-Zvb" sceneMemberID="firstResponder"/>
@@ -406,7 +407,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="uoB-Im-FhU" customClass="popUpViewController" customModule="ColorQuest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1s-eN-n54">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xyf-p5-Z1L">
@@ -418,6 +419,7 @@
                         <color key="backgroundColor" white="1" alpha="0.29583154965753422" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="VPg-vr-06s"/>
                     </view>
+                    <navigationItem key="navigationItem" id="c8Y-Uk-bIJ"/>
                     <connections>
                         <outlet property="tableView" destination="xyf-p5-Z1L" id="g6m-jn-tfA"/>
                     </connections>
@@ -654,6 +656,9 @@
             <point key="canvasLocation" x="4579.7101449275369" y="16.741071428571427"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="e37-eY-X79"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bg" width="714" height="1542"/>
         <image name="box" width="190" height="190"/>
