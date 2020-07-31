@@ -521,7 +521,7 @@ class gameScreenViewController: UIViewController {
             let alert = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
             //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            let when = DispatchTimeInterval.seconds(count)
+            let when = DispatchTimeInterval.seconds(count-1)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + when){
                 // your code with delay
                 alert.dismiss(animated: true, completion: nil)
