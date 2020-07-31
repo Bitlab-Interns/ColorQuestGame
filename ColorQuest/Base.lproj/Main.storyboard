@@ -434,6 +434,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eqC-EW-L1d">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="P9G-3i-ZLZ">
                                 <rect key="frame" x="20" y="436" width="374" height="109"/>
                                 <subviews>
@@ -535,20 +538,20 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="gradientHorizontal" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqC-EW-L1d">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="P9G-3i-ZLZ" firstAttribute="leading" secondItem="Ffk-XY-usr" secondAttribute="leading" constant="20" id="45K-gi-683"/>
+                            <constraint firstItem="eqC-EW-L1d" firstAttribute="trailing" secondItem="Ffk-XY-usr" secondAttribute="trailing" id="5BS-Wr-DQ8"/>
                             <constraint firstItem="Ffk-XY-usr" firstAttribute="trailing" secondItem="A0c-EJ-qlj" secondAttribute="trailing" constant="20" id="5oR-8G-E5H"/>
                             <constraint firstItem="EKX-xS-Hx8" firstAttribute="top" secondItem="Ffk-XY-usr" secondAttribute="top" constant="38" id="8Kf-At-VFq"/>
+                            <constraint firstItem="eqC-EW-L1d" firstAttribute="leading" secondItem="Ffk-XY-usr" secondAttribute="leading" id="8pY-qh-85F"/>
                             <constraint firstItem="A0c-EJ-qlj" firstAttribute="leading" secondItem="Ffk-XY-usr" secondAttribute="leading" constant="20" id="FNc-NI-esb"/>
                             <constraint firstItem="EKX-xS-Hx8" firstAttribute="leading" secondItem="Ffk-XY-usr" secondAttribute="leading" constant="20" id="Ojf-MM-aFU"/>
                             <constraint firstItem="sO4-ph-zCp" firstAttribute="leading" secondItem="Ffk-XY-usr" secondAttribute="leading" constant="20" id="R7g-3f-Frn"/>
                             <constraint firstItem="P9G-3i-ZLZ" firstAttribute="top" secondItem="A0c-EJ-qlj" secondAttribute="bottom" constant="25" id="Szg-wd-P5t"/>
+                            <constraint firstAttribute="bottom" secondItem="eqC-EW-L1d" secondAttribute="bottom" id="V2T-d3-22p"/>
+                            <constraint firstItem="eqC-EW-L1d" firstAttribute="top" secondItem="K22-4E-ZGP" secondAttribute="top" id="bdv-CV-Mep"/>
                             <constraint firstItem="sO4-ph-zCp" firstAttribute="top" secondItem="P9G-3i-ZLZ" secondAttribute="bottom" constant="25" id="eZ8-1j-AKu"/>
                             <constraint firstItem="Ffk-XY-usr" firstAttribute="trailing" secondItem="sO4-ph-zCp" secondAttribute="trailing" constant="20" id="gYX-i9-Yj3"/>
                             <constraint firstItem="A0c-EJ-qlj" firstAttribute="top" secondItem="EKX-xS-Hx8" secondAttribute="bottom" constant="8" id="lEg-zx-Miw"/>
