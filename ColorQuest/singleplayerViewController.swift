@@ -19,7 +19,6 @@ class singleplayerViewController: UIViewController {
     
     var startCounter = 5
     
-    @IBOutlet weak var startTimer: UILabel!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var croppedImage: UIImageView!
