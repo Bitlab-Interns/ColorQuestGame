@@ -762,12 +762,6 @@
                                     <action selector="submitPhoto:" destination="6Tu-h9-GKs" eventType="touchUpInside" id="1hP-4Q-i68"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-q0-1Xo">
-                                <rect key="frame" x="171" y="374" width="72" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -781,9 +775,7 @@
                             <constraint firstItem="HaO-Th-DqH" firstAttribute="top" secondItem="vPh-ER-eRG" secondAttribute="bottom" constant="30" id="aES-K4-RoR"/>
                             <constraint firstItem="vPh-ER-eRG" firstAttribute="centerX" secondItem="iAb-TH-kCu" secondAttribute="centerX" id="fU3-R1-yeM"/>
                             <constraint firstItem="dhT-0y-4Vh" firstAttribute="bottom" secondItem="GId-5r-F8x" secondAttribute="bottom" constant="74" id="gx6-bc-F10"/>
-                            <constraint firstItem="2EU-q0-1Xo" firstAttribute="centerX" secondItem="iAb-TH-kCu" secondAttribute="centerX" id="jDk-hR-KPC"/>
                             <constraint firstItem="GId-5r-F8x" firstAttribute="height" secondItem="iAb-TH-kCu" secondAttribute="height" multiplier="0.0669643" id="q5i-ps-MUM"/>
-                            <constraint firstItem="2EU-q0-1Xo" firstAttribute="top" secondItem="HaO-Th-DqH" secondAttribute="bottom" constant="25" id="sGB-Ez-Ka8"/>
                             <constraint firstItem="GId-5r-F8x" firstAttribute="leading" secondItem="dhT-0y-4Vh" secondAttribute="leading" constant="177" id="wxK-R7-DaM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dhT-0y-4Vh"/>
@@ -798,7 +790,6 @@
                         <outlet property="retakeButton" destination="1q2-xu-PjY" id="GKw-P7-jfv"/>
                         <outlet property="roundLabel" destination="5aa-3M-AOm" id="fnZ-RI-IFO"/>
                         <outlet property="scoreLabel" destination="fxp-wq-Nuu" id="92C-tV-XgL"/>
-                        <outlet property="startTimer" destination="2EU-q0-1Xo" id="IWF-wC-2h9"/>
                         <outlet property="submitButton" destination="Y0h-0e-qT3" id="gbj-J4-eFW"/>
                         <outlet property="timeLabel" destination="MLF-QI-kaA" id="x78-sD-vqa"/>
                     </connections>

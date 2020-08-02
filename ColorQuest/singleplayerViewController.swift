@@ -7,7 +7,7 @@ import AVFoundation
 class singleplayerViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
 
-    @IBOutlet weak var startTimer: UILabel!
+//    @IBOutlet weak var startTimer: UILabel!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var croppedImage: UIImageView!
@@ -252,7 +252,7 @@ class singleplayerViewController: UIViewController, AVCapturePhotoCaptureDelegat
             croppedImage.isHidden = true
             boxImage.isHidden = false
             cameraButton.isHidden = false
-            
+            submitButton.isHidden = true
         }
         
         func switchMode2(){
@@ -261,6 +261,7 @@ class singleplayerViewController: UIViewController, AVCapturePhotoCaptureDelegat
             croppedImage.isHidden = false
             boxImage.isHidden = true
             cameraButton.isHidden = true
+            submitButton.isHidden = false
         }
 
         @IBAction func submitPhoto(_ sender: UIButton) {
