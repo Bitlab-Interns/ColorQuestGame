@@ -668,10 +668,10 @@
             </objects>
             <point key="canvasLocation" x="4579.7101449275369" y="16.741071428571427"/>
         </scene>
-        <!--Game Screen View Controller-->
+        <!--Singleplayer View Controller-->
         <scene sceneID="h4C-ok-FhM">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="6Tu-h9-GKs" customClass="gameScreenViewController" customModule="ColorQuest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="6Tu-h9-GKs" customClass="singleplayerViewController" customModule="ColorQuest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4LV-xb-6Vf"/>
                         <viewControllerLayoutGuide type="bottom" id="szF-UG-pG6"/>
