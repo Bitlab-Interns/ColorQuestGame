@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  ColorQuest
-//
-//  Created by Michael Peng on 7/12/20.
-//  Copyright © 2020 Michael Peng. All rights reserved.
-//
+
 
 import UIKit
 import CoreData
