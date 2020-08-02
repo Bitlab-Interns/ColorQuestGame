@@ -71,7 +71,7 @@ class popUpViewController: UIViewController {
             print(error2.localizedDescription)
         }
         
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
         
         
         

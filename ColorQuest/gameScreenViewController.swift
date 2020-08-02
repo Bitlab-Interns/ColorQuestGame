@@ -66,6 +66,7 @@ class gameScreenViewController: UIViewController {
     var totalScore = 0
     var currScore = 0 // score earned in a round
     var isLeader = false
+    var rCount = 0
     
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -80,6 +81,7 @@ class gameScreenViewController: UIViewController {
     
     var timer : Timer? = nil
     
+    var refreshTimer : Timer? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -177,7 +179,15 @@ class gameScreenViewController: UIViewController {
 //                self.goalColorImageView.backgroundColor = self.guessColor
                 
                 self.moveToNextRound()
-                self.moveToLeaderboard()
+            
+            
+            self.rCount = 1
+            
+                
+            self.refreshTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.refreshUpdate), userInfo: nil, repeats: true)
+            
+                
+                
                 
                 
                 
@@ -343,6 +353,22 @@ class gameScreenViewController: UIViewController {
             
 //            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
             
+            
+        }
+    }
+    
+    
+    @objc func refreshUpdate() {
+        if(rCount > 0) {
+            
+            print("BET")
+            rCount = rCount - 1
+//            timeLabel.text = String(count)
+        } else if rCount == 0 {
+            refreshTimer!.invalidate()
+            
+            self.moveToLeaderboard()
+        
             
         }
     }
