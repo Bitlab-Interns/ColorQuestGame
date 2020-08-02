@@ -56,7 +56,7 @@ class gameScreenViewController: UIViewController {
     @IBOutlet weak var goalColorImageView: UIImageView!
     
     
-    var maxRounds = 3
+    var maxRounds = 5
     let scoreManager = ScoreManager()
     var guessColor: UIColor!
     var currRound = 1
