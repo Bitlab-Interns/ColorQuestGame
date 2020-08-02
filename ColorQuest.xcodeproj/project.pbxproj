@@ -24,6 +24,7 @@
 		89B5483824CD042100855802 /* LeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B5483624CD042100855802 /* LeadCell.swift */; };
 		89B5483924CD042100855802 /* LeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B5483724CD042100855802 /* LeadCell.xib */; };
 		97C1322FD6C96B0049F0493C /* Pods_ColorQuest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9107E6DE0BC3704260890695 /* Pods_ColorQuest.framework */; };
+		9F0150EC24D661B300E12505 /* singleplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0150EB24D661B300E12505 /* singleplayerViewController.swift */; };
 		EC6A709F24CE4DCA00640319 /* WaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A709E24CE4DCA00640319 /* WaitingRoomViewController.swift */; };
 		ECC1B59A24C2E932000C050E /* scoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1B59924C2E932000C050E /* scoreManager.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		89B5483624CD042100855802 /* LeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadCell.swift; sourceTree = "<group>"; };
 		89B5483724CD042100855802 /* LeadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeadCell.xib; sourceTree = "<group>"; };
 		9107E6DE0BC3704260890695 /* Pods_ColorQuest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColorQuest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F0150EB24D661B300E12505 /* singleplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleplayerViewController.swift; sourceTree = "<group>"; };
 		EC6A709E24CE4DCA00640319 /* WaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewController.swift; sourceTree = "<group>"; };
 		ECC1B59924C2E932000C050E /* scoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				89AD2B2824BC225E008B4696 /* ColorQuest.xcdatamodeld */,
 				89AD2B3624BC22A4008B4696 /* GoogleService-Info.plist */,
 				ECC1B59924C2E932000C050E /* scoreManager.swift */,
+				9F0150EB24D661B300E12505 /* singleplayerViewController.swift */,
 			);
 			path = ColorQuest;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				899E655D24BE91D5003E8D3D /* gameScreenViewController.swift in Sources */,
 				89AD2B2024BC225E008B4696 /* AppDelegate.swift in Sources */,
 				89AD2B2224BC225E008B4696 /* SceneDelegate.swift in Sources */,
+				9F0150EC24D661B300E12505 /* singleplayerViewController.swift in Sources */,
 				89B5482B24CBFD7700855802 /* playerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
