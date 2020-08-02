@@ -41,6 +41,14 @@ class popUpViewController: UIViewController {
         
         
         
+        ref.child("Games/\(gameID)/bChanged").observe(.childChanged) { (snapshot) in
+                    
+                    let value = snapshot.value as? NSDictionary
+            
+            self.dismiss(animated: true, completion: nil)
+            
+                }
+        
         // Do any additional setup after loading the view.
     }
     
