@@ -26,15 +26,13 @@ class ScoreManager {
         var d = sqrt(pow(r2 - r1, 2) + pow(g2 - g1, 2) + pow(b2 - b1, 2))
         
         if (d < 130) {
-            d = d * 0.2
-        } else if (d < 150) {
             d = d * 0.3
+        } else if (d < 150) {
+            d = d * 0.5
         } else if (d < 170) {
-            d = d * 0.8
+            d = d * 0.7
         } else if (d < 200) {
-            d = d * 0.9
-        } else if (d > 200) {
-            d = d * 2
+            d = d * 1.1
         }
         
         let p = d/sqrt(3 * pow(255, 2))

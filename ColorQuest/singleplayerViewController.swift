@@ -18,7 +18,6 @@ class singleplayerViewController: UIViewController, AVCapturePhotoCaptureDelegat
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var averge_color: UIImageView!
     
     
     var captureSession = AVCaptureSession()
@@ -59,10 +58,6 @@ class singleplayerViewController: UIViewController, AVCapturePhotoCaptureDelegat
         let b = CGFloat(Double(color.2) / 255.0)
         guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
         goalColorImageView.backgroundColor = guessColor
-        averge_color.backgroundColor = guessColor
-        
-        
-        
         
         setupCaptureSession()
         setupDevice()
@@ -89,9 +84,6 @@ class singleplayerViewController: UIViewController, AVCapturePhotoCaptureDelegat
             if(count > 0) {
                 count = count - 1
                 timeLabel.text = String(count)
-                let avgC = submission.averageColor!
-                //averge_color.backgroundColor = UIColor(avgC)
-
             } else if count == 0 {
     //            if !imageIsNullOrNot(imageName: submission) {
     //                let color = submission.averageColor! // average color of user's submission
