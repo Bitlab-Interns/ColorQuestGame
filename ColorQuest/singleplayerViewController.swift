@@ -252,6 +252,8 @@ class singleplayerViewController: UIViewController, AVCapturePhotoCaptureDelegat
             croppedImage.isHidden = true
             boxImage.isHidden = false
             cameraButton.isHidden = false
+            submitButton.isHidden = true
+
             
         }
         
