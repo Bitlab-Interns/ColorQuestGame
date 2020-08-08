@@ -7,8 +7,6 @@
 //
 
 import UIKit
-
-import UIKit
 import AVFoundation
 import Firebase
 
@@ -28,7 +26,6 @@ class sgplayerViewController: UIViewController {
         @IBOutlet weak var boxImage: UIImageView!
         var captureSession = AVCaptureSession()
         
-    @IBOutlet weak var avgC: UIImageView!
     
     @IBOutlet weak var submitButton: UIButton!
         var backCamera: AVCaptureDevice?
@@ -77,6 +74,17 @@ class sgplayerViewController: UIViewController {
         var refreshTimer : Timer? = nil
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            
+            let color = self.scoreManager.generatergb()
+            let r = CGFloat(Double(color.0) / 255.0)
+            let g = CGFloat(Double(color.1) / 255.0)
+            let b = CGFloat(Double(color.2) / 255.0)
+
+            
+                            guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+                            print("GS: \(self.guessColor)" )
+                            goalColorImageView.backgroundColor = self.guessColor
             
             retakePressed(self)
             
@@ -128,6 +136,8 @@ class sgplayerViewController: UIViewController {
             zoomOutGestureRecognizer.addTarget(self, action: #selector(zoomOut))
             view.addGestureRecognizer(zoomOutGestureRecognizer)
             styleCaptureButton()
+            
+            
             
             
     }///////*
@@ -393,6 +403,7 @@ class sgplayerViewController: UIViewController {
                     
             }
             submission = nil
+            retakePressed(self)
         }
         
         
