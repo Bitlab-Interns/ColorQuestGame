@@ -28,7 +28,9 @@ class sgplayerViewController: UIViewController {
         @IBOutlet weak var boxImage: UIImageView!
         var captureSession = AVCaptureSession()
         
-        @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var avgC: UIImageView!
+    
+    @IBOutlet weak var submitButton: UIButton!
         var backCamera: AVCaptureDevice?
         var frontCamera: AVCaptureDevice?
         var currentDevice: AVCaptureDevice?
