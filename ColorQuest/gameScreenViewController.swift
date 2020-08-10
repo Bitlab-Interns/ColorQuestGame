@@ -151,6 +151,7 @@ class gameScreenViewController: UIViewController {
                 let value2 = snapshot2.value as? NSDictionary
                 let t = value2?["Time"] as! Int
                 self.timeLabel.text = String(t)
+                self.count = t
                 
                 if t == 0 {
                     self.moveToNextRound()
@@ -404,9 +405,9 @@ class gameScreenViewController: UIViewController {
         if (submission == nil) {
             currScore = 0
         } else {
-            let submissionColor = submission!.averageColor! // average color of user's submission
+            let submissionColor = submission!.averageColor!
             let tempColor = guessColor.components
-            currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
+            currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2))
             currScore = currScore + 5 * (count)
         }
         totalScore = totalScore + currScore
