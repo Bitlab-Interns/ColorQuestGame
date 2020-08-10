@@ -362,7 +362,15 @@ class sgplayerViewController: UIViewController {
                 let submissionColor = submission!.averageColor! // average color of user's submission
                 let tempColor = guessColor.components
                 currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
-                currScore = currScore + 5 * (count)
+                
+                print("average rgb submission")
+                print(Float(submissionColor.0))
+                print(Float(submissionColor.1))
+                print(Float(submissionColor.2))
+
+                print("score:")
+                print(currScore)
+                //currScore = currScore + 5 * (count)
             }
             
             // display confirmation msg, disable submit button
