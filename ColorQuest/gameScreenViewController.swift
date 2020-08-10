@@ -116,14 +116,6 @@ class gameScreenViewController: UIViewController {
         view.addGestureRecognizer(zoomOutGestureRecognizer)
         styleCaptureButton()
         
-        ref.child("Games/\(gameID)/lChanged").observe(.childChanged) { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            self.moveToNextRound()
-            self.rCount = 1
-            self.refreshTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.refreshUpdate), userInfo: nil, repeats: true)
-        }
-        
-        
         
         
         //        check for color change
@@ -135,7 +127,6 @@ class gameScreenViewController: UIViewController {
                 let g = value2?["g"] as! CGFloat
                 let b = value2?["b"] as! CGFloat
                 self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
-                print("GS: \(self.guessColor)" )
                 self.goalColorImageView.backgroundColor = self.guessColor
             }) { (error2) in
                 print(error2.localizedDescription)
@@ -144,20 +135,13 @@ class gameScreenViewController: UIViewController {
         
         
         ref.child("Games/\(gameID)/bChanged").observe(.childChanged) { (snapshot) in
-            
-            let value = snapshot.value as? NSDictionary
-            
-            self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
-                let value2 = snapshot2.value as? NSDictionary
-                let r = value2?["r"] as! CGFloat
-                let g = value2?["g"] as! CGFloat
-                let b = value2?["b"] as! CGFloat
-                self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
-                print("GS: \(self.guessColor)" )
-                self.goalColorImageView.backgroundColor = self.guessColor
+            if self.isLeader {
+                let color = self.scoreManager.generatergb()
+                let r = Float(Double(color.0) / 255.0)
+                let g = Float(Double(color.1) / 255.0)
+                let b = Float(Double(color.2) / 255.0)
+                self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
                 self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
-            }) { (error2) in
-                print(error2.localizedDescription)
             }
         }
         
@@ -167,6 +151,12 @@ class gameScreenViewController: UIViewController {
                 let value2 = snapshot2.value as? NSDictionary
                 let t = value2?["Time"] as! Int
                 self.timeLabel.text = String(t)
+                
+                if t == 0 {
+                    self.moveToNextRound()
+                    self.rCount = 2
+                    self.refreshTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.refreshUpdate), userInfo: nil, repeats: true)
+                }
             }) { (error2) in
                 print(error2.localizedDescription)
             }
@@ -177,25 +167,14 @@ class gameScreenViewController: UIViewController {
     
     @objc func update() {
         if(count > 0) {
-            count = count - 1
-            
             ref.child("Games/\(gameID)/Time").updateChildValues(["Time" : count])
             timeLabel.text = String(count)
+            count = count - 1
         } else if count == 0 {
+            ref.child("Games/\(gameID)/Time").updateChildValues(["Time" : count])
+            timeLabel.text = String(count)
             timer!.invalidate()
-            
-            self.ref.child("Games/\(self.gameID)/lChanged").observeSingleEvent(of: .value, with: { (snapshot2) in
-                let value2 = snapshot2.value as? NSDictionary
-                let t = value2?["LeaderFinished"] as! Bool
-                
-                
-                self.ref.child("Games/\(self.gameID)/lChanged").updateChildValues(["LeaderFinished": !t])
-                
-                
-                
-            }) { (error2) in
-                print(error2.localizedDescription)
-            }
+
             
             
             
@@ -229,7 +208,6 @@ class gameScreenViewController: UIViewController {
             rCount = rCount - 1
         } else if rCount == 0 {
             refreshTimer!.invalidate()
-            
             self.moveToLeaderboard()
             
             
@@ -431,35 +409,16 @@ class gameScreenViewController: UIViewController {
             currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
             currScore = currScore + 5 * (count)
         }
-        
-        // display confirmation msg, disable submit button
         totalScore = totalScore + currScore
-        // upload totalScore
-        //extract every other player score
-        // send as parameters into moveToLeaderboard func
+        
         ref.child("Games/\(gameID)/Participants/\(username)").updateChildValues(["score":totalScore])
-        // might have to add delay here to wait for everyone to update score
-        //        ref.child("Games/\(gameID)/Participants/\(username)").observeSingleEvent(of: .value, with: { (snapshot) in
-        //            // Get user value
-        //            let value = snapshot.value as? NSDictionary
-        //            let score = value?["score"] as! String
-        //
-        //            // ...
-        //            }) { (error) in
-        //                print(error.localizedDessdfcription)
-        //        }
         
         if currRound == maxRounds {
-            
-            // display leaderboard
             let alert = UIAlertController(title: "Game Over!", message: "Total Score: \(totalScore)", preferredStyle: UIAlertController.Style.alert)
-            
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             
         } else {
-            
-            // move to leaderboard
             currScore = 0
             scoreLabel.text = String(totalScore)
             currRound += 1
@@ -467,70 +426,20 @@ class gameScreenViewController: UIViewController {
             count = totalTime
             
             if isLeader {
-                let color = self.scoreManager.generatergb()
-                let r = Float(Double(color.0) / 255.0)
-                let g = Float(Double(color.1) / 255.0)
-                let b = Float(Double(color.2) / 255.0)
-                //                self.guessColor = UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1)
-                //                print("GS: \(self.guessColor)" )
-                //                self.goalColorImageView.backgroundColor = self.guessColor
-                self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
                 
             } else {
-                //                ref.child("Games/\(gameID)/lChanged").observe(.childChanged) { (snapshot) in
-                //
-                //                    let value = snapshot.value as? NSDictionary
-                //                    if value?["LeaderFinished"] != nil && value?["LeaderFinished"] as! Bool {
-                //
-                //                    print("YOTE")
-                //                    self.ref.child("Games/\(self.gameID)/rgb").observeSingleEvent(of: .value, with: { (snapshot2) in
-                //                        // Get user value
-                //
-                //                        let value2 = snapshot2.value as? NSDictionary
-                //                        let r = value2?["r"] as! CGFloat
-                //                        let g = value2?["g"] as! CGFloat
-                //                        let b = value2?["b"] as! CGFloat
-                //                        self.guessColor = UIColor(red: r, green: g, blue: b, alpha: 1)
-                //                        print("GS: \(self.guessColor)" )
-                //                        self.goalColorImageView.backgroundColor = self.guessColor
-                //
-                //                    }) { (error2) in
-                //                        print(error2.localizedDescription)
-                //                    }
-                //                    }
-                //                }
+
+                
                 
                 
             }
-            //            if isLeader {
-            //                let newColor = scoreManager.generatergb()
-            //                let r = CGFloat(Double(newColor.0) / 255.0)
-            //                let g = CGFloat(Double(newColor.1) / 255.0)
-            //                let b = CGFloat(Double(newColor.2) / 255.0)
-            //                ref.child("Games/\(gameID)").updateChildValues(["guessColor":(r, g, b)])
-            //            }
-            //            ref.child("Games/\(gameID)").observeSingleEvent(of: .value, with: { (snapshot) in
-            //                // Get user value
-            //                let value = snapshot.value as? NSDictionary
-            //                let tempTuple = value?["guessColor"] as! (CGFloat, CGFloat, CGFloat)
-            //                self.guessColor = UIColor(red: tempTuple.0, green: tempTuple.1, blue: tempTuple.2, alpha: 1)
-            //
-            //            }) { (error) in
-            //                print(error.localizedDescription)
-            //            }
-            //            goalColorImageView.backgroundColor = guessColor
+
             
         }
         submission = nil
     }
     
     func moveToLeaderboard() {
-        
-        // extract all player scores from firebase
-        // create dictionary and sort it by scores
-        // return array
-        // show scores
-        // 5 second delay
         
         performSegue(withIdentifier: "toLeader", sender: self)
         
