@@ -23,8 +23,11 @@ class ScoreManager {
     }
     
     func similarity(_ r1: Float, _ g1: Float, _ b1: Float, _ r2: Float, _ g2: Float, _ b2: Float) -> Int {
-        var d = sqrt(pow(r2 - r1, 2) + pow(g2 - g1, 2) + pow(b2 - b1, 2))
         
+        var d = sqrt(pow(r2 - r1, 2) + pow(g2 - g1, 2) + pow(b2 - b1, 2))
+        print("------------")
+        print(d)
+        /*
         if (d < 130) {
             d = d * 0.3
         } else if (d < 150) {
@@ -33,7 +36,7 @@ class ScoreManager {
             d = d * 0.7
         } else if (d < 200) {
             d = d * 1.1
-        }
+        }*/
         
         let p = d/sqrt(3 * pow(255, 2))
         
