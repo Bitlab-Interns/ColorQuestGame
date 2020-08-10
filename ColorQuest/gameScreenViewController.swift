@@ -438,6 +438,7 @@ class gameScreenViewController: UIViewController {
             
         }
         submission = nil
+        retakePressed(self)
     }
     
     func moveToLeaderboard() {
