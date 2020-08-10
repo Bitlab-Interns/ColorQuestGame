@@ -150,7 +150,7 @@ class gameScreenViewController: UIViewController {
             self.ref.child("Games/\(self.gameID)/Time").observeSingleEvent(of: .value, with: { (snapshot2) in
                 let value2 = snapshot2.value as? NSDictionary
                 let t = value2?["Time"] as! Int
-                self.timeLabel.text = String(t)
+                self.timeLabel.text = "Time Left: \(String(t))"
                 self.count = t
                 
                 if t == 0 {
@@ -169,11 +169,11 @@ class gameScreenViewController: UIViewController {
     @objc func update() {
         if(count > 0) {
             ref.child("Games/\(gameID)/Time").updateChildValues(["Time" : count])
-            timeLabel.text = String(count)
+            timeLabel.text = "Time Left: \(String(count))"
             count = count - 1
         } else if count == 0 {
             ref.child("Games/\(gameID)/Time").updateChildValues(["Time" : count])
-            timeLabel.text = String(count)
+            timeLabel.text = "Time Left: \(String(count))"
             timer!.invalidate()
 
             
@@ -421,7 +421,7 @@ class gameScreenViewController: UIViewController {
             
         } else {
             currScore = 0
-            scoreLabel.text = String(totalScore)
+            scoreLabel.text = "Score: \(String(totalScore))"
             currRound += 1
             roundLabel.text = "Round: \(currRound)"
             count = totalTime
