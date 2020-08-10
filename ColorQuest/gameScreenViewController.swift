@@ -208,7 +208,18 @@ class gameScreenViewController: UIViewController {
             startTimer.text = String(startCounter)
         } else if startCounter == 0 {
             tempTimer!.invalidate()
+            
+            let color = self.scoreManager.generatergb()
+            let r = Float(Double(color.0) / 255.0)
+            let g = Float(Double(color.1) / 255.0)
+            let b = Float(Double(color.2) / 255.0)
+            self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
+            
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+            
+
+            
+            
         }
     }
     
