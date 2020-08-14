@@ -21,9 +21,16 @@ def round(x):
 
 
 def similarity(r1, g1, b1, r2, g2, b2):
+	print("--------------------")
 	d = math.sqrt((r2 -r1)**2 + ((g2-g1)**2) + ((b2-b1)**2))
 
-	#print(d)
+	#higher D value = higher P value
+	#higher P value = lower score
+	#higher D value = lower score
+	
+	print(d)
+	
+	'''
 	if d < 130:
 		d = d * 0.3
 	elif d < 150:
@@ -32,14 +39,15 @@ def similarity(r1, g1, b1, r2, g2, b2):
 		d = d * 0.7
 	elif d > 200:
 		d = d *1.1
+
 	#print(d)
-	p = d/math.sqrt(3 * (255** 2))
-	
+	'''
+	p = d/math.sqrt(3 * (255**2))
+	print(p)
+
 	if (1-p)<0:
 		return 0
-		#return " "
 	else:
-		#return " "
 		return int(1000*ceil((1-p) * 100) / 100)
 		
 
@@ -64,7 +72,9 @@ if __name__ == '__main__':
 	print(similarity(156, 209, 226, 87, 131, 85))
 	print(similarity(83, 244, 27, 169, 51, 49))
 
+	print(similarity(255, 255, 255, 255, 255, 255))
 
+	print(similarity(0, 0, 0, 255, 255, 255))
 
 	#plt.imshow([(255, 0, 0)], [(255, 0, 0)], [(255, 0, 0)])
 	#plt.show()
