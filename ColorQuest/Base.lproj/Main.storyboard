@@ -135,10 +135,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white" translatesAutoresizingMaskIntoConstraints="NO" id="6Mj-HK-aVN" userLabel="gameImage">
-                                <rect key="frame" x="0.0" y="476" width="414" height="420"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="420" id="9xG-2F-sFE"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="448" width="414" height="448"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-X3-shg">
                                 <rect key="frame" x="177" y="728" width="60" height="60"/>
@@ -250,6 +247,7 @@
                             <constraint firstItem="DtN-H4-fz5" firstAttribute="trailing" secondItem="Ldn-9J-sRW" secondAttribute="trailing" id="Jql-lq-IIg"/>
                             <constraint firstItem="wlN-Uj-B9X" firstAttribute="top" secondItem="Vyd-C2-NbE" secondAttribute="bottom" constant="10" id="LqJ-Nh-OL5"/>
                             <constraint firstItem="DtN-H4-fz5" firstAttribute="leading" secondItem="08S-Yw-gfD" secondAttribute="leading" id="Nlw-Ta-fMG"/>
+                            <constraint firstItem="6Mj-HK-aVN" firstAttribute="top" secondItem="DtN-H4-fz5" secondAttribute="bottom" id="OLE-sJ-Okc"/>
                             <constraint firstAttribute="bottom" secondItem="6Mj-HK-aVN" secondAttribute="bottom" id="PLz-ww-nfY"/>
                             <constraint firstItem="MYn-7y-12C" firstAttribute="centerX" secondItem="08S-Yw-gfD" secondAttribute="centerX" id="Z9u-bI-VQr"/>
                             <constraint firstItem="Vyd-C2-NbE" firstAttribute="centerX" secondItem="08S-Yw-gfD" secondAttribute="centerX" id="Ze7-oA-7z9"/>
