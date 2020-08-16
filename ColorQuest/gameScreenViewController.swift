@@ -63,7 +63,8 @@ class gameScreenViewController: UIViewController {
     var tempTimer : Timer? = nil
     var timer : Timer? = nil
     var refreshTimer : Timer? = nil
-    
+    let alert1 = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
+    var alerted : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +78,7 @@ class gameScreenViewController: UIViewController {
             let g = Float(Double(color.1) / 255.0)
             let b = Float(Double(color.2) / 255.0)
             self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
-            self.tempTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.tempUpdate), userInfo: nil, repeats: true)
+            self.tempTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(gameScreenViewController.tempUpdate), userInfo: nil, repeats: true)
             
         }
         else {
@@ -141,7 +142,7 @@ class gameScreenViewController: UIViewController {
                 let g = Float(Double(color.1) / 255.0)
                 let b = Float(Double(color.2) / 255.0)
                 self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+                self.timer = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
             }
         }
         
@@ -195,7 +196,7 @@ class gameScreenViewController: UIViewController {
             let b = Float(Double(color.2) / 255.0)
             self.ref.child("Games/\(self.gameID)/rgb").updateChildValues([ "r" : r, "g": g, "b" : b ])
             
-            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(gameScreenViewController.update), userInfo: nil, repeats: true)
             
 
             
@@ -386,22 +387,19 @@ class gameScreenViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             
         } else {
-            let alert = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
             //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            let when = DispatchTimeInterval.seconds(count-1)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + when){
-                // your code with delay
-                alert.dismiss(animated: true, completion: nil)
-            }
-            
+            self.present(alert1, animated: true, completion: nil)
+            alerted = true
             retakePressed(self)
         }
     }
     
     // update ui
     func moveToNextRound() { // lastScore = score earned in previous round
-        
+        if alerted{
+            alert1.dismiss(animated: true, completion: nil)
+        }
+        alerted = false
         if (submission == nil) {
             currScore = 0
         } else {
