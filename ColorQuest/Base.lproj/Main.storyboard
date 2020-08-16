@@ -782,6 +782,11 @@
                                     <action selector="submitPhoto:" destination="RR0-oI-t34" eventType="touchUpInside" id="NXk-ZB-Dng"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uf-vo-sc2">
+                                <rect key="frame" x="162" y="413" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Return Home"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -806,6 +811,7 @@
                         <outlet property="cameraButton" destination="vpA-X6-hWT" id="f5X-kh-R2z"/>
                         <outlet property="croppedImage" destination="Fnr-1K-3u2" id="tsR-q2-9pu"/>
                         <outlet property="gameImage" destination="l3k-0M-O2b" id="kD4-Il-wfw"/>
+                        <outlet property="goHome" destination="0uf-vo-sc2" id="kGS-Hz-IFH"/>
                         <outlet property="goalColorImageView" destination="UIl-k9-06h" id="d1e-G0-fQc"/>
                         <outlet property="retakeButton" destination="cDK-i3-tfU" id="Q9p-Qk-qW8"/>
                         <outlet property="roundLabel" destination="fck-tf-RYZ" id="9Li-xL-7uV"/>
