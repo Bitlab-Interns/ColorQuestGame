@@ -798,6 +798,7 @@
                                 <state key="normal" title="Return Home"/>
                                 <connections>
                                     <action selector="homePressed:" destination="RR0-oI-t34" eventType="touchUpInside" id="Dwa-v5-lwU"/>
+                                    <segue destination="GyK-xS-5ih" kind="show" id="Zgu-5v-ACn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -839,6 +840,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Zgu-5v-ACn"/>
         <segue reference="e37-eY-X79"/>
     </inferredMetricsTieBreakers>
     <resources>
