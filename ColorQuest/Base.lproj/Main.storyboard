@@ -796,6 +796,9 @@
                                 <rect key="frame" x="162" y="413" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Return Home"/>
+                                <connections>
+                                    <action selector="homePressed:" destination="RR0-oI-t34" eventType="touchUpInside" id="Dwa-v5-lwU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

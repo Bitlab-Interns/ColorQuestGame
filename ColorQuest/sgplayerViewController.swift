@@ -27,6 +27,9 @@ class sgplayerViewController: UIViewController {
         var captureSession = AVCaptureSession()
     @IBOutlet weak var goHome: UIButton!
 
+    @IBAction func homePressed(_ sender: Any) {
+        print("---------------------------------")
+    }
     
     @IBOutlet weak var submitButton: UIButton!
         var backCamera: AVCaptureDevice?
@@ -388,6 +391,11 @@ class sgplayerViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 
+                
+                
+                //self.performSegue(withIdentifier: "toHome", sender: self)
+                
+                
             } else {
                 
                 // move to leaderboard
@@ -444,4 +452,11 @@ class sgplayerViewController: UIViewController {
             }
         }
     }
+    /*func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toHome") {
+            segue.destination as! HomeViewController
+            
+        }
+    }
+ */
 
