@@ -44,7 +44,7 @@ class gameScreenViewController: UIViewController {
     var zoomInGestureRecognizer = UISwipeGestureRecognizer()
     var zoomOutGestureRecognizer = UISwipeGestureRecognizer()
     @IBOutlet weak var goalColorImageView: UIImageView!
-    var maxRounds = 5
+    var maxRounds = 10
     let scoreManager = ScoreManager()
     var guessColor: UIColor!
     var currRound = 1
@@ -66,9 +66,11 @@ class gameScreenViewController: UIViewController {
     let alert1 = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
     var alerted : Bool = false
     
+    @IBOutlet weak var goHome: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        goHome.isHidden = true
         
         retakePressed(self)
         ref = Database.database().reference()
@@ -415,6 +417,8 @@ class gameScreenViewController: UIViewController {
         ref.child("Games/\(gameID)/Participants/\(username)").updateChildValues(["score":totalScore])
         
         if currRound == maxRounds {
+            goHome.isHidden = false
+
             let alert = UIAlertController(title: "Game Over!", message: "Total Score: \(totalScore)", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)

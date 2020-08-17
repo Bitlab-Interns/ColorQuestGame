@@ -240,6 +240,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMO-NR-Czv">
+                                <rect key="frame" x="164" y="410" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Return Home"/>
+                                <connections>
+                                    <segue destination="GyK-xS-5ih" kind="show" id="WmE-oH-jTf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -285,6 +293,7 @@
                         <outlet property="cameraButton" destination="aeO-X3-shg" id="ptp-oH-7fZ"/>
                         <outlet property="croppedImage" destination="0ZT-9o-P3O" id="P84-N5-FJX"/>
                         <outlet property="gameImage" destination="6Mj-HK-aVN" id="4vf-al-z4v"/>
+                        <outlet property="goHome" destination="tMO-NR-Czv" id="FtN-So-YSk"/>
                         <outlet property="goalColorImageView" destination="Muq-ha-KUC" id="yym-xA-8CT"/>
                         <outlet property="retakeButton" destination="AFO-Ct-AcZ" id="m8d-Fb-gDf"/>
                         <outlet property="roundLabel" destination="kpg-Os-ZRf" id="ECL-CI-JYn"/>
@@ -450,7 +459,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="uoB-Im-FhU" customClass="popUpViewController" customModule="ColorQuest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1s-eN-n54">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwE-jX-6Js" customClass="PMSuperButton" customModule="PMSuperButton">
@@ -840,7 +849,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zgu-5v-ACn"/>
+        <segue reference="WmE-oH-jTf"/>
         <segue reference="e37-eY-X79"/>
     </inferredMetricsTieBreakers>
     <resources>
