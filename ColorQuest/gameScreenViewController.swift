@@ -148,6 +148,8 @@ class gameScreenViewController: UIViewController {
         
         ref.child("Games/\(gameID)/Time").observe(.childChanged) { (snapshot) in
             let value = snapshot.value as? NSDictionary
+            self.scoreLabel.text = "Score: \(String(Int(self.totalScore)))"
+            self.roundLabel.text = "Round: \(self.currRound)"
             self.ref.child("Games/\(self.gameID)/Time").observeSingleEvent(of: .value, with: { (snapshot2) in
                 let value2 = snapshot2.value as? NSDictionary
                 let t = value2?["Time"] as! Int
@@ -419,9 +421,8 @@ class gameScreenViewController: UIViewController {
             
         } else {
             currScore = 0
-            scoreLabel.text = "Score: \(String(totalScore))"
             currRound += 1
-            roundLabel.text = "Round: \(currRound)"
+
             count = totalTime
             
             if isLeader {

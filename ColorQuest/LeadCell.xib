@@ -16,35 +16,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sje-uY-xdB">
-                        <rect key="frame" x="66" y="12" width="244" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2004" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF1-0x-wl8">
+                        <rect key="frame" x="214" y="12" width="90" height="24"/>
+                        <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="17"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2004" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF1-0x-wl8">
-                        <rect key="frame" x="16" y="12" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Andrew" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sje-uY-xdB">
+                        <rect key="frame" x="16" y="12" width="190" height="24"/>
+                        <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="17"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JF1-0x-wl8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="F8V-Uw-XFJ"/>
-                    <constraint firstAttribute="trailing" secondItem="sje-uY-xdB" secondAttribute="trailing" constant="10" id="W6u-QX-dM0"/>
-                    <constraint firstAttribute="bottom" secondItem="sje-uY-xdB" secondAttribute="bottom" constant="11" id="gEK-h3-WxG"/>
-                    <constraint firstItem="sje-uY-xdB" firstAttribute="leading" secondItem="JF1-0x-wl8" secondAttribute="trailing" constant="8" id="niQ-bZ-s4T"/>
-                    <constraint firstItem="sje-uY-xdB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="xfL-Xe-fX7"/>
-                    <constraint firstAttribute="bottom" secondItem="JF1-0x-wl8" secondAttribute="bottom" constant="11" id="yqA-4A-WCA"/>
-                    <constraint firstItem="JF1-0x-wl8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="zYu-Bz-ich"/>
+                    <constraint firstItem="sje-uY-xdB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="3JW-2X-fNk"/>
+                    <constraint firstAttribute="bottom" secondItem="sje-uY-xdB" secondAttribute="bottom" constant="8" id="A4U-ym-lLo"/>
+                    <constraint firstItem="JF1-0x-wl8" firstAttribute="leading" secondItem="sje-uY-xdB" secondAttribute="trailing" constant="8" id="IOh-KZ-PDM"/>
+                    <constraint firstAttribute="trailing" secondItem="sje-uY-xdB" secondAttribute="trailing" constant="114" id="QIt-gd-bnF"/>
+                    <constraint firstAttribute="trailing" secondItem="JF1-0x-wl8" secondAttribute="trailing" constant="16" id="XfW-Bw-kh7"/>
+                    <constraint firstItem="sje-uY-xdB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cl1-dT-7GH"/>
+                    <constraint firstAttribute="bottom" secondItem="JF1-0x-wl8" secondAttribute="bottom" constant="8" id="tGV-0E-Z8Q"/>
+                    <constraint firstItem="JF1-0x-wl8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="z9d-IL-TRx"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="name" destination="sje-uY-xdB" id="MB8-MW-gDs"/>
                 <outlet property="score" destination="JF1-0x-wl8" id="Pou-Jj-hpU"/>
             </connections>
-            <point key="canvasLocation" x="114" y="92"/>
+            <point key="canvasLocation" x="118.84057971014494" y="93.75"/>
         </tableViewCell>
     </objects>
 </document>
