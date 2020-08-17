@@ -26,7 +26,7 @@ class sgplayerViewController: UIViewController {
         @IBOutlet weak var boxImage: UIImageView!
         var captureSession = AVCaptureSession()
     @IBOutlet weak var goHome: UIButton!
-    
+
     
     @IBOutlet weak var submitButton: UIButton!
         var backCamera: AVCaptureDevice?
@@ -47,7 +47,7 @@ class sgplayerViewController: UIViewController {
         @IBOutlet weak var goalColorImageView: UIImageView!
         
         
-        var maxRounds = 5
+        var maxRounds = 2
         let scoreManager = ScoreManager()
         var guessColor: UIColor!
         var currRound = 1
@@ -75,6 +75,8 @@ class sgplayerViewController: UIViewController {
         var refreshTimer : Timer? = nil
         override func viewDidLoad() {
             super.viewDidLoad()
+            goHome.isHidden = true
+
             
             
             let color = self.scoreManager.generatergb()
@@ -379,6 +381,8 @@ class sgplayerViewController: UIViewController {
             if currRound == maxRounds {
                 
                 // display leaderboard
+                goHome.isHidden = false
+
                 let alert = UIAlertController(title: "Game Over!", message: "Total Score: \(totalScore)", preferredStyle: UIAlertController.Style.alert)
                 
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
