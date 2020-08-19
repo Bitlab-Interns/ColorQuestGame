@@ -65,6 +65,7 @@ class gameScreenViewController: UIViewController {
     var refreshTimer : Timer? = nil
     let alert1 = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
     var alerted : Bool = false
+    var rounds : Int = 0
     
     @IBOutlet weak var goHome: UIButton!
     override func viewDidLoad() {
@@ -416,7 +417,7 @@ class gameScreenViewController: UIViewController {
         
         ref.child("Games/\(gameID)/Participants/\(username)").updateChildValues(["score":totalScore])
         
-        if currRound == maxRounds {
+        if currRound == rounds {
             goHome.isHidden = false
 
             let alert = UIAlertController(title: "Game Over!", message: "Total Score: \(totalScore)", preferredStyle: UIAlertController.Style.alert)

@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
     
     var isLeader : Bool = false
     
+    var rounds : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -107,9 +109,9 @@ class HomeViewController: UIViewController {
                             self.textField = alertTextField
                             //                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
                         }
-                        alert.addTextField { (alertTextField1) in
+                        alert { (alertTextField1) in
                             alertTextField1.placeholder = "Rounds"
-//                            self.topicTextField = alertTexdftField1
+                            alertTextField1.keyboardType = .numberPad
                         }
                         
                         self.present(alert, animated: true, completion: nil)
@@ -234,6 +236,7 @@ class HomeViewController: UIViewController {
             secondVC.username = username
             secondVC.gameID = gameID
             secondVC.isLeader = isLeader
+            secondVC.rounds = rounds
         }
     }
     /*

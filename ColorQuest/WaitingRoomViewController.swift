@@ -19,6 +19,7 @@ class WaitingRoomViewController: UIViewController {
     var username : String = ""
     var gameID : String = ""
     var numOfPlayers : Int = 0
+    var rounds : Int = 0
     
     
     override func viewDidLoad() {
@@ -95,6 +96,7 @@ class WaitingRoomViewController: UIViewController {
             secondVC.username = username
             secondVC.gameID = gameID
             secondVC.isLeader = isLeader
+            secondVC.rounds = rounds
             
         }
     }

@@ -25,6 +25,8 @@ class sgplayerViewController: UIViewController {
         @IBOutlet weak var retakeButton: UIButton!
         @IBOutlet weak var boxImage: UIImageView!
         var captureSession = AVCaptureSession()
+    
+    var rounds : Int = 0
     @IBOutlet weak var goHome: UIButton!
 
     @IBAction func homePressed(_ sender: Any) {
