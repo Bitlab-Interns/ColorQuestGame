@@ -220,7 +220,10 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMO-NR-Czv">
                                 <rect key="frame" x="161.66666666666666" y="394.33333333333331" width="91" height="30"/>
-                                <state key="normal" title="Return Home"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Return Home">
+                                    <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="GyK-xS-5ih" kind="show" id="WmE-oH-jTf"/>
                                 </connections>
@@ -464,7 +467,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="uoB-Im-FhU" customClass="popUpViewController" customModule="ColorQuest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1s-eN-n54">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwE-jX-6Js" customClass="PMSuperButton" customModule="PMSuperButton">
@@ -838,7 +841,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uf-vo-sc2">
                                 <rect key="frame" x="161.66666666666666" y="394.66666666666669" width="91" height="30"/>
-                                <state key="normal" title="Return Home"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Return Home">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="homePressed:" destination="RR0-oI-t34" eventType="touchUpInside" id="Dwa-v5-lwU"/>
                                     <segue destination="GyK-xS-5ih" kind="show" id="Zgu-5v-ACn"/>
@@ -926,11 +932,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bb-5Y-iRZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008.6956521739132" y="848.4375"/>
+            <point key="canvasLocation" x="2008.6956521739132" y="847.82608695652175"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oYI-p3-gf1"/>
         <segue reference="WmE-oH-jTf"/>
         <segue reference="e37-eY-X79"/>
     </inferredMetricsTieBreakers>

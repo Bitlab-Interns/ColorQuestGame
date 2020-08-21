@@ -384,9 +384,13 @@ class sgplayerViewController: UIViewController {
             // display confirmation msg, disable submit button
             totalScore = totalScore + currScore
             if currRound == maxRounds {
-                
+                retakeButton.isHidden = true
+                cameraButton.isHidden = true
+                submitButton.isHidden = true
                 // display leaderboard
+                goHome.layer.cornerRadius =  min(cameraButton.frame.width, cameraButton.frame.height)/4
                 goHome.isHidden = false
+                
 
                 let alert = UIAlertController(title: "Game Over!", message: "Total Score: \(totalScore)", preferredStyle: UIAlertController.Style.alert)
                 
