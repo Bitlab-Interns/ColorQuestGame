@@ -418,7 +418,11 @@ class gameScreenViewController: UIViewController {
         ref.child("Games/\(gameID)/Participants/\(username)").updateChildValues(["score":totalScore])
         
         if currRound == rounds {
-            goHome.layer.cornerRadius =  min(cameraButton.frame.width, cameraButton.frame.height) / 4
+            retakeButton.isEnabled = false
+            cameraButton.isEnabled = false
+            submitButton.isEnabled = false
+            
+            goHome.layer.cornerRadius =  min(cameraButton.frame.width, cameraButton.frame.height) / 5
             goHome.isHidden = false
 
             let alert = UIAlertController(title: "Game Over!", message: "Total Score: \(totalScore)", preferredStyle: UIAlertController.Style.alert)

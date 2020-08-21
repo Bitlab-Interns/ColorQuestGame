@@ -387,6 +387,12 @@ class sgplayerViewController: UIViewController {
                 retakeButton.isHidden = true
                 cameraButton.isHidden = true
                 submitButton.isHidden = true
+                
+                retakeButton.isEnabled = false
+                cameraButton.isEnabled = false
+                submitButton.isEnabled = false
+                
+                
                 // display leaderboard
                 goHome.layer.cornerRadius =  min(cameraButton.frame.width, cameraButton.frame.height)/4
                 goHome.isHidden = false
