@@ -68,6 +68,7 @@ class HomeViewController: UIViewController {
                                     self.present(alert1, animated: true, completion: nil)
                                 }
                                 else {
+//                                    self.ref.child("Games").
                                     self.ref.child("Players").child(self.username).updateChildValues(["CurrentGame" : self.textField.text!])
                                 
                                     self.ref.child("Games").child(self.textField.text!).child("Participants").child(String(self.username)).updateChildValues(["username" : self.username, "isLeader" : true, "score": 0])
@@ -77,6 +78,7 @@ class HomeViewController: UIViewController {
                                     self.ref.child("Games").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!])
                                     
                                     self.ref.child("Games/\(self.textField.text!)/gsChanged").updateChildValues(["gameStarted": false])
+                                    self.ref.child("Games/\(self.textField.text!)").updateChildValues(["Rounds": self.rounds])
                                     
                                     self.gameID = self.textField.text!
                                     self.isLeader = true
