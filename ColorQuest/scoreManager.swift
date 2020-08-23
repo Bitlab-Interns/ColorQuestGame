@@ -43,7 +43,28 @@ class ScoreManager {
         if (1-p < 0) {
             return 0
         } else {
-            return Int(1000*ceil((1-p) * 100) / 100)
+            var scoreBeforeChange = Int(1000*ceil((1-p) * 100) / 100)
+            print("BEFORE CHANGE:")
+            print(scoreBeforeChange)
+            let difference = 1000 - scoreBeforeChange
+            print("DIFFERENCE:")
+            print(difference)
+
+            if (difference > 300){
+                scoreBeforeChange = scoreBeforeChange - 6*difference/7
+            }
+            if (difference > 400){
+                scoreBeforeChange = scoreBeforeChange - 7*difference/8
+            }
+            if (difference > 500){
+                scoreBeforeChange = scoreBeforeChange - 9*difference/10
+            }
+         
+            print("AFTER CHANGE:")
+
+            print(scoreBeforeChange)
+
+            return scoreBeforeChange
         }
     }
     

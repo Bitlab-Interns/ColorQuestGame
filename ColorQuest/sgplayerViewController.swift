@@ -348,7 +348,15 @@ class sgplayerViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 
             } else {
-                let alert = UIAlertController(title: "Submission Successful", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
+                let submissionColor = submission!.averageColor! // average color of user's submission
+                let tempColor = guessColor.components
+                currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
+                
+                let header = "Submission Successful. You earned "
+                let header2 = String(currScore)
+                let header3 = " points"
+                let header4 = header + header2 + header3
+                let alert = UIAlertController(title: header4, message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
                 //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 let when = DispatchTimeInterval.seconds(count-1)
