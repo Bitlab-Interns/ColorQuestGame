@@ -57,7 +57,9 @@ class ScoreManager {
                 scoreBeforeChange = scoreBeforeChange - 7*difference/8
             }
             if (difference > 500){
-                scoreBeforeChange = scoreBeforeChange - 9*difference/10
+                print("subtracting")
+                let subtract = 9*difference/10
+                scoreBeforeChange = scoreBeforeChange - subtract
             }
          
             print("AFTER CHANGE:")

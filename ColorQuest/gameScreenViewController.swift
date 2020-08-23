@@ -402,7 +402,16 @@ class gameScreenViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             
         } else {
-            //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            let submissionColor = submission!.averageColor!
+            let tempColor = guessColor.components
+            currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2))
+            let header = "Submission Successful. You earned "
+            let header2 = String(currScore)
+            let header3 = " points"
+            let header4 = header + header2 + header3
+            let alert = UIAlertController(title: header4, message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
+            
+            
             self.present(alert1, animated: true, completion: nil)
             alerted = true
             retakePressed(self)
@@ -421,7 +430,6 @@ class gameScreenViewController: UIViewController {
             let submissionColor = submission!.averageColor!
             let tempColor = guessColor.components
             currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2))
-            currScore = currScore + 5 * (count)
         }
         totalScore = totalScore + currScore
         
