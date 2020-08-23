@@ -26,7 +26,7 @@ class gameScreenViewController: UIViewController {
     var ref: DatabaseReference!
     var leaderboard: [String: String] = [:]
     var startCounter = 5
-    @IBOutlet weak var startTimer: UILabel!
+//    @IBOutlet weak var startTimer: UILabel!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var croppedImage: UIImageView!
@@ -191,7 +191,7 @@ class gameScreenViewController: UIViewController {
     @objc func tempUpdate() {
         if(startCounter > 0) {
             startCounter = startCounter - 1
-            startTimer.text = String(startCounter)
+//            startTimer.text = String(startCounter)
         } else if startCounter == 0 {
             tempTimer!.invalidate()
             
@@ -422,7 +422,7 @@ class gameScreenViewController: UIViewController {
             cameraButton.isEnabled = false
             submitButton.isEnabled = false
             
-            goHome.layer.cornerRadius =  min(cameraButton.frame.width, cameraButton.frame.height) / 5
+//            goHome.layer.cornerRadius =  min(cameraButton.frame.width, cameraButton.frame.height) / 5
             goHome.isHidden = false
 
             let alert = UIAlertController(title: "Game Over!", message: "Total Score: \(totalScore)", preferredStyle: UIAlertController.Style.alert)

@@ -218,12 +218,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMO-NR-Czv">
-                                <rect key="frame" x="161.66666666666666" y="394.33333333333331" width="91" height="30"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Return Home">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMO-NR-Czv" customClass="PMSuperButton" customModule="PMSuperButton">
+                                <rect key="frame" x="161.66666666666666" y="394.33333333333331" width="90.666666666666657" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.798227545380222" blue="0.0074770109005982688" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Home">
                                     <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="GyK-xS-5ih" kind="show" id="WmE-oH-jTf"/>
                                 </connections>
@@ -252,6 +257,7 @@
                         <constraints>
                             <constraint firstItem="kpg-Os-ZRf" firstAttribute="top" secondItem="08S-Yw-gfD" secondAttribute="top" constant="38" id="0Cr-IK-YMb"/>
                             <constraint firstItem="aeO-X3-shg" firstAttribute="height" secondItem="08S-Yw-gfD" secondAttribute="height" multiplier="0.0669643" id="13C-zy-iXo"/>
+                            <constraint firstItem="tMO-NR-Czv" firstAttribute="leading" secondItem="DtN-H4-fz5" secondAttribute="trailing" constant="-252.33333333333334" id="2zn-A8-Id2"/>
                             <constraint firstItem="7Yi-NB-Dyg" firstAttribute="top" secondItem="kpg-Os-ZRf" secondAttribute="bottom" constant="7.6699999999999999" id="3YP-KJ-uGy"/>
                             <constraint firstItem="tMO-NR-Czv" firstAttribute="centerX" secondItem="08S-Yw-gfD" secondAttribute="centerX" id="4Pt-Rh-iJL"/>
                             <constraint firstItem="0ZT-9o-P3O" firstAttribute="top" secondItem="DtN-H4-fz5" secondAttribute="bottom" constant="30" id="5hj-AC-MwH"/>
@@ -274,6 +280,7 @@
                             <constraint firstItem="MYn-7y-12C" firstAttribute="top" secondItem="Muq-ha-KUC" secondAttribute="bottom" constant="10" id="dcq-cV-a8N"/>
                             <constraint firstItem="Muq-ha-KUC" firstAttribute="top" secondItem="7Yi-NB-Dyg" secondAttribute="bottom" constant="8" id="ex3-Bv-EWU"/>
                             <constraint firstItem="0bZ-D8-rVf" firstAttribute="top" secondItem="MYn-7y-12C" secondAttribute="bottom" constant="16" id="gTH-84-KF3"/>
+                            <constraint firstItem="DtN-H4-fz5" firstAttribute="leading" secondItem="tMO-NR-Czv" secondAttribute="trailing" constant="-252.33333333333331" id="ipT-wN-b81"/>
                             <constraint firstItem="aeO-X3-shg" firstAttribute="centerX" secondItem="wlN-Uj-B9X" secondAttribute="centerX" id="msk-DK-T6I"/>
                             <constraint firstItem="6Mj-HK-aVN" firstAttribute="leading" secondItem="Ldn-9J-sRW" secondAttribute="leading" id="pVg-Nx-xLs"/>
                             <constraint firstItem="Muq-ha-KUC" firstAttribute="centerX" secondItem="08S-Yw-gfD" secondAttribute="centerX" id="pgT-AI-057"/>
@@ -839,12 +846,20 @@
                                     <action selector="submitPhoto:" destination="RR0-oI-t34" eventType="touchUpInside" id="NXk-ZB-Dng"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uf-vo-sc2">
-                                <rect key="frame" x="161.66666666666666" y="394.66666666666669" width="91" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uf-vo-sc2" customClass="PMSuperButton" customModule="PMSuperButton">
+                                <rect key="frame" x="161.66666666666666" y="394.66666666666669" width="90.666666666666657" height="30"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Return Home">
+                                <state key="normal" title="Home">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="homePressed:" destination="RR0-oI-t34" eventType="touchUpInside" id="Dwa-v5-lwU"/>
                                     <segue destination="GyK-xS-5ih" kind="show" id="Zgu-5v-ACn"/>
@@ -881,6 +896,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0uf-vo-sc2" firstAttribute="leading" secondItem="2hx-YU-ihl" secondAttribute="trailing" constant="-252.33333333333334" id="0PX-PS-cI2"/>
                             <constraint firstItem="UIl-k9-06h" firstAttribute="top" secondItem="9bf-XK-mM1" secondAttribute="bottom" constant="8" id="0i1-6r-WK2"/>
                             <constraint firstItem="l3k-0M-O2b" firstAttribute="leading" secondItem="DRk-la-8O0" secondAttribute="leading" id="5EF-Vp-6vN"/>
                             <constraint firstItem="DRk-la-8O0" firstAttribute="trailing" secondItem="cDK-i3-tfU" secondAttribute="trailing" constant="20" id="BEK-9M-Zwf"/>
@@ -909,6 +925,7 @@
                             <constraint firstItem="Fnr-1K-3u2" firstAttribute="top" secondItem="2hx-YU-ihl" secondAttribute="bottom" constant="30" id="r80-9t-nfn"/>
                             <constraint firstItem="vpA-X6-hWT" firstAttribute="centerX" secondItem="rdH-Hi-ao3" secondAttribute="centerX" id="rw3-aK-bMd"/>
                             <constraint firstItem="3dH-8D-uE1" firstAttribute="centerX" secondItem="rdH-Hi-ao3" secondAttribute="centerX" id="s8x-X4-XdP"/>
+                            <constraint firstItem="2hx-YU-ihl" firstAttribute="leading" secondItem="0uf-vo-sc2" secondAttribute="trailing" constant="-252.33333333333331" id="suH-tj-GvA"/>
                             <constraint firstItem="0uf-vo-sc2" firstAttribute="top" secondItem="3dH-8D-uE1" secondAttribute="bottom" constant="4" id="tiJ-qt-k60"/>
                             <constraint firstItem="vpA-X6-hWT" firstAttribute="width" secondItem="rdH-Hi-ao3" secondAttribute="width" multiplier="0.144928" id="xSf-R8-7RX"/>
                             <constraint firstItem="2hx-YU-ihl" firstAttribute="leading" secondItem="DRk-la-8O0" secondAttribute="leading" id="z7U-6m-6Qf"/>
@@ -936,7 +953,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zgu-5v-ACn"/>
+        <segue reference="TqI-m8-AwJ"/>
+        <segue reference="WmE-oH-jTf"/>
         <segue reference="e37-eY-X79"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -109,10 +109,11 @@ class HomeViewController: UIViewController {
                             self.textField = alertTextField
                             //                /Users/michaelpeng/Desktop/ClassroomConnections/Pods/PKRevealController/Source/PKRevealController/PKRevealController.m:1363:1: Conflicting return type in implementation of 'supportedInterfaceOrientations': 'UIInterfaceOrientationMask' (aka 'enum UIInterfaceOrientationMask') vs 'NSUInteger' (aka 'unsigned long')
                         }
-                     //   alert { (alertTextField1) in
-                      //      alertTextField1.placeholder = "Rounds"
-                       //     alertTextField1.keyboardType = .numberPad
-                        //}
+            alert.addTextField{ (alertTextField1) in
+                            alertTextField1.placeholder = "Rounds"
+                            alertTextField1.keyboardType = .numberPad
+                self.rounds = 	Int(alertTextField1.text!) ?? 0
+                        }
                         
                         self.present(alert, animated: true, completion: nil)
         }

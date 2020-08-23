@@ -394,7 +394,7 @@ class sgplayerViewController: UIViewController {
                 
                 
                 // display leaderboard
-                goHome.layer.cornerRadius =  min(cameraButton.frame.width, cameraButton.frame.height)/4
+//                goHome.layer.cornerRadius =  min(cameraButton.frame.width, cameraButton.frame.height)/4
                 goHome.isHidden = false
                 
 
