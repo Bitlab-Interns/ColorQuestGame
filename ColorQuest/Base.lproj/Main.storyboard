@@ -474,7 +474,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="uoB-Im-FhU" customClass="popUpViewController" customModule="ColorQuest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1s-eN-n54">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwE-jX-6Js" customClass="PMSuperButton" customModule="PMSuperButton">
@@ -953,9 +953,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TqI-m8-AwJ"/>
-        <segue reference="WmE-oH-jTf"/>
-        <segue reference="e37-eY-X79"/>
+        <segue reference="Cw9-xi-ROw"/>
+        <segue reference="Zgu-5v-ACn"/>
+        <segue reference="BsZ-8d-MXa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bg" width="714" height="1542"/>

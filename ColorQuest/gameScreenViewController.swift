@@ -86,11 +86,21 @@ class gameScreenViewController: UIViewController {
         }
         else {
             
+            
+            
 
         }
         
         
-        
+        self.ref.child("Games/\(self.gameID)").observeSingleEvent(of: .value, with: { (snapshot2) in
+            let value2 = snapshot2.value as? NSDictionary
+            let r = value2?["Rounds"] as! Int
+            
+            self.rounds = r
+            
+        }) { (error2) in
+            print(error2.localizedDescription)
+        }
         
 
         
