@@ -453,6 +453,8 @@ class gameScreenViewController: UIViewController {
                 
                 
             }
+            
+            print("\(currRound) yote \(rounds)")
 
             
         }

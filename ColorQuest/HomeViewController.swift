@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
                         let alert = UIAlertController(title: "Enter code to create class", message: "", preferredStyle: .alert)
                         let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
                             print(self.textField.text!)
-                            self.ref.child("Classrooms").observeSingleEvent(of: .value, with: { (snap) in
+                            self.ref.child("Games").observeSingleEvent(of: .value, with: { (snap) in
                                 if (self.textField.text! == "") {
                                     let alert1 = UIAlertController(title: "Error with creating class", message: "", preferredStyle: .alert)
                                     let cancelButton = UIAlertAction(title: "Cancel", style: .default) { (cancel) in
@@ -68,6 +68,9 @@ class HomeViewController: UIViewController {
                                     self.present(alert1, animated: true, completion: nil)
                                 }
                                 else {
+                                    
+                                     self.ref.child("Games/\(self.textField.text!)").updateChildValues(["Rounds": self.rounds])
+                                    
 //                                    self.ref.child("Games").
                                     self.ref.child("Players").child(self.username).updateChildValues(["CurrentGame" : self.textField.text!])
                                 
@@ -78,7 +81,7 @@ class HomeViewController: UIViewController {
                                     self.ref.child("Games").child(self.textField.text!).updateChildValues(["ID" : self.textField.text!])
                                     
                                     self.ref.child("Games/\(self.textField.text!)/gsChanged").updateChildValues(["gameStarted": false])
-                                    self.ref.child("Games/\(self.textField.text!)").updateChildValues(["Rounds": self.rounds])
+                                    
                                     
                                     self.gameID = self.textField.text!
                                     self.isLeader = true
@@ -114,7 +117,7 @@ class HomeViewController: UIViewController {
             alert.addTextField{ (alertTextField1) in
                             alertTextField1.placeholder = "Rounds"
                             alertTextField1.keyboardType = .numberPad
-                self.rounds = 	Int(alertTextField1.text!) ?? 0
+                self.rounds = 	Int(alertTextField1.text!) ?? 10
                         }
                         
                         self.present(alert, animated: true, completion: nil)
@@ -163,7 +166,8 @@ class HomeViewController: UIViewController {
                                           
                                           self.ref.child("Players").child(self.username).updateChildValues(["CurrentGame" : self.textField.text!])
               
-                                             
+                                            print("hello!!")
+                                            
                                              
                                              
                                             self.ref.child("Games").child(self.textField.text!).child("Participants").child(String(self.username)).updateChildValues(["username" : self.username, "isLeader" : false, "score": 0])
