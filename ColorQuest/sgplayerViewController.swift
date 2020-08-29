@@ -52,7 +52,7 @@ class sgplayerViewController: UIViewController {
         @IBOutlet weak var goalColorImageView: UIImageView!
         
         
-        var maxRounds = 2
+        var maxRounds = 10
         let scoreManager = ScoreManager()
         var guessColor: UIColor!
         var currRound = 1

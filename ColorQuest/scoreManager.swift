@@ -49,17 +49,21 @@ class ScoreManager {
             let difference = 1000 - scoreBeforeChange
             print("DIFFERENCE:")
             print(difference)
+            
+            if(difference < 100){
+                scoreBeforeChange = scoreBeforeChange + 50
+            }
 
             if (difference > 300){
-                scoreBeforeChange = scoreBeforeChange - 6*difference/7
+                scoreBeforeChange = scoreBeforeChange - 3*scoreBeforeChange/7
             }
             if (difference > 400){
-                scoreBeforeChange = scoreBeforeChange - 7*difference/8
+                scoreBeforeChange = scoreBeforeChange - 5*scoreBeforeChange/8
             }
             if (difference > 500){
                 print("subtracting")
-                let subtract = 9*difference/10
-                scoreBeforeChange = scoreBeforeChange - subtract
+                //let subtract = 9*difference/10
+                scoreBeforeChange = scoreBeforeChange*3/10
             }
          
             print("AFTER CHANGE:")
