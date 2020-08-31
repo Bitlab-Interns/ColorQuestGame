@@ -68,10 +68,10 @@ class gameScreenViewController: UIViewController {
     var rounds : Int = 0
     
     var header = "Submission Successful. You earned "
-    var header2 = String(currScore)
+    var header2 = 0
     var header3 = " points"
-    var header4 = header + header2 + header3
-    var alert2 = UIAlertController(title: header4, message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
+    var header4 = ""
+    var alert2 = UIAlertController(title: "", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
     
     
     @IBOutlet weak var goHome: UIButton!
@@ -416,9 +416,8 @@ class gameScreenViewController: UIViewController {
 
             
                  header = "Submission Successful. You earned "
-                 header2 = String(currScore)
                  header3 = " points"
-                 header4 = header + header2 + header3
+                 header4 = header + "\(currScore)" + header3
                  alert2 = UIAlertController(title: header4, message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
             self.present(alert2, animated: true, completion: nil)
 //            let when = DispatchTimeInterval.seconds(10)
