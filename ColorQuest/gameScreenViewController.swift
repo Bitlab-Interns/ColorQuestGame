@@ -425,7 +425,7 @@ class gameScreenViewController: UIViewController {
 //                               // your code with delay
 //                               alert2.dismiss(animated: true, completion: nil)
 //                           }
-            //alerted = true
+            alerted = true
             retakePressed(self)
         }
     }
