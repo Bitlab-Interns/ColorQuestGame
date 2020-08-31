@@ -441,7 +441,7 @@ class gameScreenViewController: UIViewController {
         
         ref.child("Games/\(gameID)/Participants/\(username)").updateChildValues(["score":totalScore])
         
-        if currRound == rounds {
+        if currRound == maxRounds {
             retakeButton.isEnabled = false
             cameraButton.isEnabled = false
             submitButton.isEnabled = false
