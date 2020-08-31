@@ -67,6 +67,13 @@ class gameScreenViewController: UIViewController {
     var alerted : Bool = false
     var rounds : Int = 0
     
+    var header = "Submission Successful. You earned "
+    var header2 = String(currScore)
+    var header3 = " points"
+    var header4 = header + header2 + header3
+    var alert2 = UIAlertController(title: header4, message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
+    
+    
     @IBOutlet weak var goHome: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -406,19 +413,19 @@ class gameScreenViewController: UIViewController {
                            let tempColor = guessColor.components
                            currScore = scoreManager.similarity(Float(submissionColor.0), Float(submissionColor.1), Float(submissionColor.2), Float(tempColor.0), Float(tempColor.1), Float(tempColor.2)) // calculate score of user's submission
                            
-                           let header = "Submission Successful. You earned "
-                           let header2 = String(currScore)
-                           let header3 = " points"
-                           let header4 = header + header2 + header3
-                           let alert2 = UIAlertController(title: header4, message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
+
             
-            
+                 header = "Submission Successful. You earned "
+                 header2 = String(currScore)
+                 header3 = " points"
+                 header4 = header + header2 + header3
+                 alert2 = UIAlertController(title: header4, message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
             self.present(alert2, animated: true, completion: nil)
-            let when = DispatchTimeInterval.seconds(10)
-                           DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + when){
-                               // your code with delay
-                               alert2.dismiss(animated: true, completion: nil)
-                           }
+//            let when = DispatchTimeInterval.seconds(10)
+//                           DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + when){
+//                               // your code with delay
+//                               alert2.dismiss(animated: true, completion: nil)
+//                           }
             //alerted = true
             retakePressed(self)
         }
@@ -427,7 +434,7 @@ class gameScreenViewController: UIViewController {
     // update ui
     func moveToNextRound() { // lastScore = score earned in previous round
         if alerted{
-            alert1.dismiss(animated: true, completion: nil)
+            alert2.dismiss(animated: true, completion: nil)
         }
         alerted = false
         if (submission == nil) {
