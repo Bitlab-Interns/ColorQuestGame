@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import PMSuperButton
 
 class popUpViewController: UIViewController {
     
@@ -22,6 +23,8 @@ class popUpViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var Roundbutton: PMSuperButton!
     
     var playerList: [playerCell] = [playerCell]()
     
@@ -38,7 +41,13 @@ class popUpViewController: UIViewController {
         
         
         retrieveData()
+        
+        if !(isLeader) {
+            Roundbutton.isHidden = true
+        }
+        
         tableView.reloadData()
+        
         
         
         
