@@ -20,6 +20,8 @@ class popUpViewController: UIViewController {
     
     var isLeader : Bool = false
     
+    var done : Bool = false
+    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -42,8 +44,19 @@ class popUpViewController: UIViewController {
         
         retrieveData()
         
-        if !(isLeader) {
-            Roundbutton.isHidden = true
+        if !(isLeader)  {
+            if !done{
+                Roundbutton.isHidden = true
+            }
+            else {
+                Roundbutton.setTitle("Return", for: .normal)
+            }
+            
+        }
+        else {
+            if done{
+                Roundbutton.setTitle("Return", for: .normal)
+            }
         }
         
         tableView.reloadData()
@@ -67,6 +80,10 @@ class popUpViewController: UIViewController {
     @IBAction func nextRoundPressed(_ sender: Any) {
         
         
+        if done {
+            self.performSegue(withIdentifier: "backSegue", sender: self)
+        }
+        else {
         self.ref.child("Games/\(self.gameID)/bChanged").observeSingleEvent(of: .value, with: { (snapshot2) in
             // Get user value
             
@@ -80,6 +97,7 @@ class popUpViewController: UIViewController {
             
         }) { (error2) in
             print(error2.localizedDescription)
+        }
         }
         
 //        dismiss(animated: true, completion: nil)

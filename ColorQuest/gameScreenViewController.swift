@@ -73,6 +73,8 @@ class gameScreenViewController: UIViewController {
     var header4 = ""
     var alert2 = UIAlertController(title: "", message: "Please wait until the end of the round", preferredStyle: UIAlertController.Style.alert)
     
+    var done = false
+    
     
     @IBOutlet weak var goHome: UIButton!
     override func viewDidLoad() {
@@ -448,6 +450,7 @@ class gameScreenViewController: UIViewController {
         ref.child("Games/\(gameID)/Participants/\(username)").updateChildValues(["score":totalScore])
         
         if currRound == maxRounds {
+            done = true
             retakeButton.isEnabled = false
             cameraButton.isEnabled = false
             submitButton.isEnabled = false
@@ -455,9 +458,9 @@ class gameScreenViewController: UIViewController {
 //            goHome.layer.cornerRadius =  min(cameraButton.frame.width, cameraButton.frame.height) / 5
             goHome.isHidden = false
 
-            let alert = UIAlertController(title: "Game Over!", message: "Total Score: \(totalScore)", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+//            let alert = UIAlertController(title: "Game Over!", message: "Total Score: \(totalScore)", preferredStyle: UIAlertController.Style.alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
             
         } else {
             currScore = 0
@@ -496,6 +499,7 @@ class gameScreenViewController: UIViewController {
             secondVC.username = username
             secondVC.gameID = gameID
             secondVC.isLeader = isLeader
+            secondVC.done = done
             
         }
     }

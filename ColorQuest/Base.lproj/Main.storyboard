@@ -532,6 +532,7 @@
                     <connections>
                         <outlet property="Roundbutton" destination="VwE-jX-6Js" id="ZMN-ty-V7D"/>
                         <outlet property="tableView" destination="xyf-p5-Z1L" id="g6m-jn-tfA"/>
+                        <segue destination="GyK-xS-5ih" kind="presentation" identifier="backSegue" id="WDn-l9-ae0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68o-j3-ACj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -954,7 +955,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zgu-5v-ACn"/>
+        <segue reference="WDn-l9-ae0"/>
         <segue reference="e37-eY-X79"/>
     </inferredMetricsTieBreakers>
     <resources>
