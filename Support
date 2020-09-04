@@ -1,0 +1,11 @@
+The objective of the game:
+During each round, you are shown a randomly generated color onto your screen. Your job is to run around your surroundings, looking for objects or things that closely resemble this color, and submit a picture of it.
+From how close your color is to the actual goal color, you will be awarded points between 0 and 1000 determined by our custom color similarity algorithm.
+
+How our game works:
+There are two different game modes, multiplayer and single-player.
+For multiplayer, anyone can create a game room with a custom code and invite other friends to join in. Once all the players are ready, the leader of this game room can set the amount of rounds the game will run for and start the game. Each person in this private game will receive the same color to search for, and every round there is a different random color to search for. The closer the color of the object you submit the more points you will be rewarded. After the final round, whoever has the most points wins the game.
+For single-player, you can start a game without wifi and immediately start playing. The overall game structure is identical to single-player, except you are not competing with anyone else other than yourself.
+
+How to play:
+Log into the app with any username. Click "PLAY" to play single-player mode. Click "CREATE" to create a server for other players to join. Click "JOIN" to join an existing server. During the game, take a photo of an object that has about the same color as the given color, then submit your photo to earn points. The closer your photo is to the given color, the more points you earn.
